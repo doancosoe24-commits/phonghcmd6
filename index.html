@@ -1,0 +1,1906 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Phòng Hồ Chí Minh Tiểu đoàn 6</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#fff7e8;
+      --bg2:#fff1c9;
+      --surface:rgba(255,255,255,.84);
+      --surface2:rgba(255,252,245,.96);
+      --text:#3b2a10;
+      --muted:#7a5a2a;
+      --primary:#f59e0b;
+      --primary2:#f97316;
+      --primary3:#fbbf24;
+      --stroke:rgba(245,158,11,.18);
+      --shadow:0 18px 50px rgba(185,111,0,.16);
+      --radius:24px;
+      --radius2:30px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{
+      margin:0;
+      padding:0;
+      font-family:"Inter",sans-serif;
+      min-height:100%;
+      color:var(--text);
+      scroll-behavior:smooth;
+    }
+
+    body{
+      background:
+        radial-gradient(circle at top left, rgba(251,191,36,.34), transparent 30%),
+        radial-gradient(circle at top right, rgba(249,115,22,.18), transparent 28%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
+    }
+
+    a{text-decoration:none;color:inherit}
+    img{max-width:100%;display:block}
+    button{font-family:inherit}
+
+    .wrap{
+      width:min(1240px, calc(100% - 24px));
+      margin:0 auto;
+      padding:18px 0 42px;
+    }
+
+    .topbar{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      margin-bottom:18px;
+      min-height:68px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      font-weight:800;
+      letter-spacing:-.02em;
+      text-align:center;
+    }
+
+    .logo{
+      width:112px;
+      height:112px;
+      border-radius:18px;
+      overflow:hidden;
+      box-shadow:0 14px 30px rgba(245,158,11,.20);
+      background:#fff;
+      display:grid;
+      place-items:center;
+      flex:0 0 auto;
+    }
+
+    .logo img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .brand-text{
+      font-size:18px;
+      line-height:1.35;
+      color:#4a2d00;
+    }
+
+    .view{display:none}
+    .view.active{display:block;animation:fadeIn .28s ease}
+    @keyframes fadeIn{
+      from{opacity:0;transform:translateY(8px)}
+      to{opacity:1;transform:translateY(0)}
+    }
+
+    .section-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:end;
+      gap:16px;
+      margin:26px 0 16px;
+    }
+
+    .section-head h2{
+      margin:0;
+      font-size:clamp(22px, 2.5vw, 32px);
+      letter-spacing:-.03em;
+      color:#4a2d00;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0,1fr));
+      gap:18px;
+    }
+
+    .card{
+      display:block;
+      background:linear-gradient(180deg, rgba(255,255,255,.96), rgba(255,249,235,.92));
+      border:1px solid var(--stroke);
+      border-radius:var(--radius2);
+      overflow:hidden;
+      box-shadow:var(--shadow);
+      transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+      cursor:pointer;
+    }
+
+    .card:hover{
+      transform:translateY(-6px);
+      border-color:rgba(245,158,11,.28);
+      box-shadow:0 24px 70px rgba(185,111,0,.18);
+    }
+
+    .thumb{
+      aspect-ratio:16 / 10;
+      overflow:hidden;
+      background:#fff;
+    }
+
+    .thumb img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transition:transform .35s ease;
+    }
+
+    .card:hover .thumb img{transform:scale(1.07)}
+
+    .content{padding:18px}
+
+    .num{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:42px;
+      height:42px;
+      border-radius:14px;
+      background:linear-gradient(135deg, rgba(251,191,36,.22), rgba(249,115,22,.18));
+      border:1px solid rgba(245,158,11,.16);
+      font-weight:900;
+      margin-bottom:12px;
+      color:#7c4a00;
+    }
+
+    .content h3{
+      margin:0 0 10px;
+      font-size:19px;
+      line-height:1.45;
+      letter-spacing:-.02em;
+      color:#4a2d00;
+      min-height:84px;
+      display:-webkit-box;
+      -webkit-line-clamp:3;
+      -webkit-box-orient:vertical;
+      overflow:hidden;
+    }
+
+    .card-footer{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:10px;
+      color:#7c4a00;
+      font-size:14px;
+      margin-top:14px;
+    }
+
+    .read{color:#ea580c;font-weight:800}
+
+    .footer{
+      margin-top:30px;
+      padding:18px 0 0;
+      color:#8a5400;
+      text-align:center;
+      font-size:14px;
+    }
+
+    .detail-top{
+      display:grid;
+      grid-template-columns:minmax(0,1.05fr) minmax(320px,.95fr);
+      gap:22px;
+      align-items:stretch;
+      margin-top:18px;
+    }
+
+    .hero-card,
+    .info-card,
+    .detail-card{
+      background:linear-gradient(180deg, rgba(255,255,255,.94), rgba(255,252,246,.90));
+      border:1px solid rgba(255,255,255,.58);
+      border-radius:calc(var(--radius2) + 2px);
+      box-shadow:0 20px 60px rgba(82,45,0,.10);
+      overflow:hidden;
+      position:relative;
+    }
+
+    .hero-card{
+      min-height:420px;
+      isolation:isolate;
+    }
+
+    .hero-media{
+      position:absolute;
+      inset:0;
+      background:#f8f4ea;
+    }
+
+    .hero-media img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transform:scale(1.03);
+      filter:saturate(1.06) contrast(1.04);
+    }
+
+    .hero-card::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(180deg, rgba(0,0,0,.05) 0%, rgba(17,24,39,.09) 28%, rgba(255,247,232,.96) 100%);
+      pointer-events:none;
+      z-index:1;
+    }
+
+    .hero-overlay{
+      position:relative;
+      z-index:2;
+      min-height:420px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      padding:22px;
+    }
+
+    .hero-badges{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:center;
+    }
+
+    .hero-tag{
+      width:max-content;
+      padding:10px 14px;
+      border-radius:999px;
+      background:rgba(255,255,255,.82);
+      border:1px solid rgba(255,255,255,.56);
+      color:#92400e;
+      font-size:13px;
+      font-weight:800;
+      backdrop-filter:blur(14px);
+      box-shadow:0 12px 30px rgba(0,0,0,.10);
+    }
+
+    .hero-count{
+      width:max-content;
+      padding:10px 14px;
+      border-radius:999px;
+      background:rgba(15,23,42,.68);
+      color:#fff;
+      font-size:13px;
+      font-weight:800;
+      letter-spacing:.02em;
+      backdrop-filter:blur(12px);
+    }
+
+    .hero-bottom{
+      display:grid;
+      gap:12px;
+    }
+
+    .hero-mini{
+      max-width:68ch;
+      color:rgba(44,26,7,.82);
+      line-height:1.82;
+      font-size:16px;
+      margin:0;
+    }
+
+    .info-card{
+      padding:22px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+    }
+
+    .info-kicker{
+      display:inline-flex;
+      width:max-content;
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(251,191,36,.14);
+      border:1px solid rgba(245,158,11,.16);
+      color:#7c4a00;
+      font-size:13px;
+      font-weight:800;
+      margin-bottom:14px;
+    }
+
+    .detail-hero-title{
+      margin:0 0 12px;
+      color:#2c1a07;
+      font-size:clamp(30px, 4vw, 56px);
+      line-height:1.02;
+      letter-spacing:-.05em;
+      text-wrap:balance;
+      text-shadow:0 2px 18px rgba(255,255,255,.24);
+    }
+
+    .detail-hero-text{
+      margin:0;
+      color:#7a5a2a;
+      line-height:1.85;
+      font-size:clamp(15px, 1.55vw, 17px);
+    }
+
+    .meta{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0,1fr));
+      gap:10px;
+      margin-top:18px;
+    }
+
+    .meta span{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      min-height:56px;
+      padding:10px 12px;
+      border-radius:18px;
+      background:linear-gradient(180deg, rgba(255,255,255,.94), rgba(255,249,235,.94));
+      border:1px solid rgba(245,158,11,.14);
+      color:#7c4a00;
+      font-size:13px;
+      font-weight:800;
+      text-align:center;
+      box-shadow:0 10px 20px rgba(185,111,0,.08);
+    }
+
+    .detail-toolbar{
+      display:grid;
+      gap:10px;
+      margin-top:18px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:14px 16px;
+      border-radius:18px;
+      font-weight:800;
+      transition:.22s ease;
+      border:1px solid transparent;
+      cursor:pointer;
+      user-select:none;
+      width:100%;
+    }
+
+    .btn:hover{transform:translateY(-2px)}
+    .btn-primary{
+      background:linear-gradient(135deg, #f59e0b, #f97316 58%, #ef4444);
+      color:white;
+      box-shadow:0 14px 34px rgba(249,115,22,.22);
+    }
+
+    .btn-ghost{
+      background:rgba(255,255,255,.76);
+      border-color:rgba(245,158,11,.18);
+      color:#4a2d00;
+    }
+
+    .layout{
+      display:grid;
+      grid-template-columns:minmax(0,1.08fr) minmax(340px,.92fr);
+      gap:22px;
+      margin-top:22px;
+      align-items:start;
+    }
+
+    .detail-card .head{
+      padding:20px 22px 0;
+    }
+
+    .detail-card h2{
+      margin:0;
+      font-size:20px;
+      letter-spacing:-.02em;
+      color:#2c1a07;
+    }
+
+    .pdf-wrap{padding:20px}
+
+    .pdf-frame{
+      width:100%;
+      height:min(80vh, 920px);
+      border-radius:24px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.65);
+      background:linear-gradient(180deg, rgba(255,255,255,.88), rgba(255,249,235,.96));
+      box-shadow:0 20px 40px rgba(185,111,0,.12);
+      position:relative;
+    }
+
+    .pdf-frame::before{
+      content:"PDF Preview";
+      position:absolute;
+      top:14px;
+      left:14px;
+      z-index:2;
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(15,23,42,.72);
+      color:#fff;
+      font-size:12px;
+      font-weight:700;
+      letter-spacing:.03em;
+      backdrop-filter:blur(10px);
+      pointer-events:none;
+    }
+
+    .pdf-frame iframe{
+      width:100%;
+      height:100%;
+      border:0;
+      display:block;
+      background:#fff;
+    }
+
+    .note{
+      margin:0 20px 20px;
+      padding:16px 18px;
+      border-radius:20px;
+      background:linear-gradient(180deg, rgba(255,255,255,.86), rgba(255,249,235,.92));
+      border:1px solid rgba(245,158,11,.14);
+      color:#7b5a2a;
+      line-height:1.8;
+      box-shadow:0 10px 22px rgba(185,111,0,.08);
+    }
+
+    .gallery-shell{
+      padding:18px 20px 8px;
+    }
+
+    .slider{
+      display:grid;
+      gap:16px;
+    }
+
+    .slider-main{
+      position:relative;
+      border-radius:28px;
+      overflow:hidden;
+      min-height:300px;
+      aspect-ratio:16 / 11;
+      border:1px solid rgba(255,255,255,.62);
+      background:linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,249,235,.94));
+      box-shadow:0 20px 48px rgba(185,111,0,.14);
+      isolation:isolate;
+    }
+
+    .slider-main::before{
+      content:"";
+      position:absolute;
+      inset:auto 0 0 0;
+      height:46%;
+      background:linear-gradient(180deg, transparent, rgba(0,0,0,.36));
+      z-index:1;
+      pointer-events:none;
+    }
+
+    .slide{
+      position:absolute;
+      inset:0;
+      opacity:0;
+      transform:scale(1.02);
+      transition:opacity .45s ease, transform .7s cubic-bezier(.22,1,.36,1);
+      pointer-events:none;
+      cursor:zoom-in;
+    }
+
+    .slide.active{
+      opacity:1;
+      transform:scale(1);
+      pointer-events:auto;
+    }
+
+    .slide img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+
+    .slide-count{
+      position:absolute;
+      top:14px;
+      left:14px;
+      z-index:3;
+      padding:9px 12px;
+      border-radius:999px;
+      background:rgba(15,23,42,.66);
+      border:1px solid rgba(255,255,255,.18);
+      color:#fff;
+      font-weight:800;
+      font-size:12px;
+      letter-spacing:.03em;
+      backdrop-filter:blur(12px);
+    }
+
+    .slide-caption{
+      position:absolute;
+      left:16px;
+      right:16px;
+      bottom:16px;
+      z-index:3;
+      padding:14px 16px;
+      border-radius:20px;
+      background:rgba(255,255,255,.84);
+      border:1px solid rgba(255,255,255,.70);
+      color:#2c1a07;
+      box-shadow:0 14px 34px rgba(0,0,0,.10);
+      backdrop-filter:blur(16px);
+      font-weight:700;
+      line-height:1.65;
+    }
+
+    .slider-btn{
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      width:52px;
+      height:52px;
+      border:none;
+      border-radius:50%;
+      background:rgba(255,255,255,.88);
+      backdrop-filter:blur(14px);
+      color:#2c1a07;
+      font-size:24px;
+      font-weight:900;
+      display:grid;
+      place-items:center;
+      box-shadow:0 14px 28px rgba(0,0,0,.18);
+      cursor:pointer;
+      z-index:5;
+      transition:transform .2s ease, background .2s ease, box-shadow .2s ease;
+      touch-action:manipulation;
+      -webkit-tap-highlight-color:transparent;
+    }
+    .slider-btn:hover{transform:translateY(-50%) scale(1.06)}
+    .slider-btn.prev{left:14px}
+    .slider-btn.next{right:14px}
+
+    .thumb-strip{
+      display:grid;
+      grid-template-columns:repeat(auto-fill, minmax(110px, 1fr));
+      gap:12px;
+    }
+
+    .thumb-item{
+      border:1px solid rgba(255,255,255,.66);
+      border-radius:20px;
+      overflow:hidden;
+      background:linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,249,235,.94));
+      box-shadow:0 12px 26px rgba(185,111,0,.10);
+      cursor:pointer;
+      transition:transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+      text-align:left;
+      padding:0;
+    }
+
+    .thumb-item:hover{
+      transform:translateY(-4px);
+      border-color:rgba(249,115,22,.28);
+      box-shadow:0 20px 34px rgba(185,111,0,.16);
+    }
+
+    .thumb-item.active{
+      border-color:rgba(249,115,22,.40);
+      box-shadow:0 20px 38px rgba(249,115,22,.16);
+      transform:translateY(-2px);
+    }
+
+    .thumb-item img{
+      width:100%;
+      aspect-ratio:4 / 3;
+      object-fit:cover;
+      display:block;
+    }
+
+    .thumb-caption{
+      padding:10px 10px 12px;
+      font-size:12px;
+      line-height:1.55;
+      color:#6b4b1f;
+      font-weight:700;
+      min-height:58px;
+      display:-webkit-box;
+      -webkit-line-clamp:3;
+      -webkit-box-orient:vertical;
+      overflow:hidden;
+    }
+
+    .notes-grid{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0,1fr));
+      gap:12px;
+      padding:0 20px 20px;
+    }
+
+    .note-item{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      min-height:96px;
+      padding:14px 14px;
+      border-radius:18px;
+      background:rgba(255,255,255,.76);
+      border:1px solid rgba(245,158,11,.14);
+      box-shadow:0 10px 22px rgba(185,111,0,.08);
+      cursor:pointer;
+      transition:transform .2s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease;
+      text-align:left;
+    }
+
+    .note-item:hover{
+      transform:translateY(-2px);
+      background:rgba(255,255,255,.92);
+      border-color:rgba(249,115,22,.22);
+      box-shadow:0 14px 28px rgba(185,111,0,.12);
+    }
+
+    .note-index{
+      width:30px;
+      height:30px;
+      flex:0 0 auto;
+      border-radius:10px;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(135deg, rgba(251,191,36,.22), rgba(249,115,22,.18));
+      border:1px solid rgba(245,158,11,.16);
+      color:#7c4a00;
+      font-weight:900;
+      font-size:13px;
+    }
+
+    .note-content{
+      flex:1;
+      min-width:0;
+    }
+
+    .note-title{
+      margin:0 0 6px;
+      font-weight:800;
+      color:#2c1a07;
+      font-size:14px;
+      line-height:1.45;
+      display:-webkit-box;
+      -webkit-line-clamp:2;
+      -webkit-box-orient:vertical;
+      overflow:hidden;
+    }
+
+    .note-preview{
+      margin:0;
+      color:#7a5a2a;
+      font-size:13px;
+      line-height:1.55;
+      display:-webkit-box;
+      -webkit-line-clamp:2;
+      -webkit-box-orient:vertical;
+      overflow:hidden;
+      min-height:42px;
+    }
+
+    .note-item.active{
+      background:linear-gradient(180deg, rgba(251,191,36,.16), rgba(255,255,255,.94));
+      border-color:rgba(249,115,22,.26);
+      box-shadow:0 12px 24px rgba(249,115,22,.12);
+    }
+
+    /* Lightbox ảnh đơn */
+    .single-lightbox{
+      position:fixed;
+      inset:0;
+      background:rgba(3,7,18,.86);
+      backdrop-filter:blur(16px);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      z-index:10001;
+      padding:18px;
+    }
+
+    .single-lightbox.open{display:flex}
+
+    .single-lightbox-panel{
+      position:relative;
+      width:min(1100px, 100%);
+      max-height:calc(100vh - 36px);
+      border-radius:28px;
+      overflow:hidden;
+      box-shadow:0 30px 90px rgba(0,0,0,.42);
+      background:#0b1220;
+      border:1px solid rgba(255,255,255,.14);
+    }
+
+    .single-lightbox-panel img{
+      display:block;
+      width:100%;
+      max-height:calc(100vh - 36px);
+      object-fit:contain;
+      background:#0b1220;
+    }
+
+    .single-lightbox-caption{
+      position:absolute;
+      left:18px;
+      right:18px;
+      bottom:18px;
+      padding:14px 16px;
+      border-radius:18px;
+      background:rgba(15,23,42,.72);
+      color:#fff;
+      font-weight:700;
+      line-height:1.6;
+      border:1px solid rgba(255,255,255,.12);
+      backdrop-filter:blur(12px);
+      z-index:3;
+    }
+
+    .single-lightbox-close{
+      position:absolute;
+      top:18px;
+      right:18px;
+      z-index:4;
+      width:44px;
+      height:44px;
+      border:none;
+      border-radius:50%;
+      cursor:pointer;
+      color:#fff;
+      background:rgba(255,255,255,.12);
+      backdrop-filter:blur(12px);
+      box-shadow:0 18px 36px rgba(0,0,0,.24);
+      font-size:26px;
+      line-height:1;
+    }
+
+    .single-lightbox-close:hover{transform:scale(1.05)}
+
+    .modal{
+      position:fixed;
+      inset:0;
+      z-index:10000;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      background:rgba(3,7,18,.84);
+      backdrop-filter:blur(14px);
+      padding:18px;
+    }
+
+    .modal.open{display:flex}
+
+    .modal-panel{
+      width:min(860px, 100%);
+      max-height:calc(100vh - 36px);
+      overflow:hidden;
+      border-radius:28px;
+      background:linear-gradient(180deg, rgba(255,255,255,.98), rgba(255,249,235,.96));
+      border:1px solid rgba(255,255,255,.16);
+      box-shadow:0 30px 90px rgba(0,0,0,.36);
+      display:flex;
+      flex-direction:column;
+    }
+
+    .modal-head{
+      padding:18px 20px 14px;
+      border-bottom:1px solid rgba(245,158,11,.12);
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:14px;
+    }
+
+    .modal-head h3{
+      margin:0;
+      font-size:20px;
+      color:#2c1a07;
+      line-height:1.35;
+      letter-spacing:-.02em;
+    }
+
+    .modal-close{
+      width:42px;
+      height:42px;
+      border:0;
+      border-radius:50%;
+      background:rgba(15,23,42,.08);
+      color:#2c1a07;
+      font-size:24px;
+      cursor:pointer;
+    }
+
+    .modal-body{
+      padding:18px 20px 20px;
+      overflow:auto;
+    }
+
+    .modal-body p{
+      margin:0 0 14px;
+      color:#7b5a2a;
+      line-height:1.8;
+    }
+
+    .full-note-list{
+      display:grid;
+      gap:10px;
+    }
+
+    .full-note{
+      padding:12px 14px;
+      border-radius:16px;
+      background:rgba(255,255,255,.84);
+      border:1px solid rgba(245,158,11,.14);
+      color:#2c1a07;
+      line-height:1.7;
+    }
+
+    .full-note strong{color:#ea580c}
+
+    @media (max-width: 1040px){
+      .grid{grid-template-columns:repeat(2, minmax(0,1fr))}
+      .detail-top,
+      .layout{grid-template-columns:1fr}
+      .hero-card,
+      .hero-overlay{min-height:360px}
+    }
+
+    @media (max-width: 720px){
+      .wrap{width:min(100% - 16px, 1240px)}
+      .grid{grid-template-columns:1fr}
+      .section-head{flex-direction:column;align-items:flex-start}
+      .brand{flex-direction:column}
+      .logo{width:92px;height:92px}
+      .brand-text{font-size:16px}
+      .hero-overlay{padding:16px}
+      .info-card{padding:18px}
+      .detail-hero-title{font-size:clamp(28px, 10vw, 40px)}
+      .meta{grid-template-columns:1fr}
+      .notes-grid{grid-template-columns:1fr;padding:0 16px 16px}
+      .detail-card .head{padding:18px 16px 0}
+      .pdf-wrap{padding:16px}
+      .note{margin:0 16px 16px}
+      .gallery-shell{padding:16px 16px 8px}
+
+      .slider-main{
+        padding-bottom:68px;
+      }
+      .slide-caption{
+        left:12px;
+        right:12px;
+        bottom:68px;
+        font-size:13px;
+      }
+      .slider-btn{
+        width:44px;
+        height:44px;
+        font-size:22px;
+        top:auto;
+        bottom:12px;
+        transform:none;
+        z-index:6;
+      }
+      .slider-btn:hover{transform:none}
+      .slider-btn.prev{left:12px}
+      .slider-btn.next{right:12px}
+
+      .thumb-strip{grid-template-columns:repeat(auto-fill, minmax(96px, 1fr))}
+
+      .single-lightbox{padding:10px}
+      .single-lightbox-panel{
+        width:100%;
+        max-height:calc(100vh - 20px);
+        border-radius:22px;
+      }
+      .single-lightbox-panel img{
+        max-height:calc(100vh - 20px);
+      }
+      .single-lightbox-caption{
+        left:12px;
+        right:12px;
+        bottom:12px;
+        font-size:13px;
+      }
+      .single-lightbox-close{
+        top:12px;
+        right:12px;
+      }
+
+      .modal{padding:10px}
+      .modal-panel{border-radius:22px}
+    }
+
+    @media (max-width: 500px){
+      .slider-main{
+        min-height:200px;
+        aspect-ratio:16 / 11;
+      }
+    }
+    /* Hiệu ứng mưa/tuyết */
+.fx-layer{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  overflow:hidden;
+  z-index:9998;
+}
+
+.fx-drop{
+  position:absolute;
+  top:-40px;
+  width:2px;
+  height:18px;
+  border-radius:999px;
+  background:rgba(255,255,255,.55);
+  box-shadow:0 0 8px rgba(255,255,255,.18);
+  animation:fall linear forwards;
+  will-change:transform, opacity;
+}
+
+.fx-snow{
+  position:absolute;
+  top:-30px;
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:rgba(255,255,255,.72);
+  box-shadow:0 0 10px rgba(255,255,255,.15);
+  animation:fallSnow linear forwards;
+  will-change:transform, opacity;
+}
+
+.fx-logo-burst{
+  position:absolute;
+  width:42px;
+  height:42px;
+  transform:translate(-50%, -50%) scale(.6);
+  opacity:0;
+  border-radius:50%;
+  overflow:hidden;
+  background:rgba(255,255,255,.88);
+  box-shadow:0 10px 26px rgba(0,0,0,.20);
+  animation:logoPop 2s ease-in-out forwards;
+  will-change:transform, opacity;
+}
+
+.fx-logo-burst img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+@keyframes fall{
+  0%{
+    transform:translate3d(0,0,0) scaleY(1);
+    opacity:0;
+  }
+  10%{opacity:1}
+  100%{
+    transform:translate3d(var(--drift), 110vh, 0) scaleY(1);
+    opacity:0;
+  }
+}
+
+@keyframes fallSnow{
+  0%{
+    transform:translate3d(0,0,0) scale(1);
+    opacity:0;
+  }
+  10%{opacity:1}
+  100%{
+    transform:translate3d(var(--drift), 110vh, 0) scale(1);
+    opacity:0;
+  }
+}
+
+@keyframes logoPop{
+  0%{
+    opacity:0;
+    transform:translate(-50%, -50%) scale(.35);
+  }
+  18%{
+    opacity:1;
+    transform:translate(-50%, -50%) scale(1.08);
+  }
+  45%{
+    opacity:1;
+    transform:translate(-50%, -50%) scale(1);
+  }
+  100%{
+    opacity:0;
+    transform:translate(-50%, calc(-50% + 50px)) scale(.82);
+  }
+}
+
+@media (max-width: 720px){
+  .fx-logo-burst{
+    width:34px;
+    height:34px;
+  }
+}
+  </style>
+</head>
+<body>
+  <div class="fx-layer" id="fxLayer"></div>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="brand">
+        <div class="logo">
+          <img src="./img/logo.png" alt="logo">
+        </div>
+        <div class="brand-text">Phòng Hồ Chí Minh Tiểu đoàn 6</div>
+      </div>
+    </div>
+
+    <section id="homeView" class="view active">
+      <div class="section-head" id="listSection">
+        <div>
+          <h2>Danh sách Mảng ảnh</h2>
+        </div>
+      </div>
+
+      <section class="grid">
+        <a class="card" href="javascript:void(0)" onclick="openItem(1)">
+          <div class="thumb">
+            <img src="./img/2/file corel phòng HCM 01.png" alt="Đề mục 1">
+          </div>
+          <div class="content">
+            <div class="num">1</div>
+            <h3>ĐẢNG CỘNG SẢN VIỆT NAM, NGƯỜI TỔ CHỨC VÀ LÃNH ĐẠO MỌI THẮNG LỢI CỦA CÁCH MẠNG VIỆT NAM</h3>
+            <div class="card-footer">
+              <span>Click để xem PDF</span>
+              <span class="read">Mở trang →</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="card" href="javascript:void(0)" onclick="openItem(2)">
+          <div class="thumb">
+            <img src="./img/3/file corel phòng HCM 01.png" alt="Đề mục 2">
+          </div>
+          <div class="content">
+            <div class="num">2</div>
+            <h3>VIỆT NAM - ĐẤT NƯỚC, CON NGƯỜI</h3>
+            <div class="card-footer">
+              <span>Click để xem PDF</span>
+              <span class="read">Mở trang →</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="card" href="javascript:void(0)" onclick="openItem(3)">
+          <div class="thumb">
+            <img src="./img/1/file corel phòng HCM 01.png" alt="Đề mục 3">
+          </div>
+          <div class="content">
+            <div class="num">3</div>
+            <h3>CHỦ TỊCH HỒ CHÍ MINH “CUỘC ĐỜI VÀ SỰ NGHIỆP”</h3>
+            <div class="card-footer">
+              <span>Click để xem PDF</span>
+              <span class="read">Mở trang →</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="card" href="javascript:void(0)" onclick="openItem(4)">
+          <div class="thumb">
+            <img src="./img/4/file corel phòng HCM 07.png" alt="Đề mục 4">
+          </div>
+          <div class="content">
+            <div class="num">4</div>
+            <h3>“QUÂN ĐỘI NHÂN DÂN VIỆT NAM - CÁCH MẠNG, CHÍNH QUY, TINH NHUỆ, HIỆN ĐẠI”</h3>
+            <div class="card-footer">
+              <span>Click để xem PDF</span>
+              <span class="read">Mở trang →</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="card" href="javascript:void(0)" onclick="openItem(5)">
+          <div class="thumb">
+            <img src="./img/5/file corel phòng HCM 01.png" alt="Đề mục 5">
+          </div>
+          <div class="content">
+            <div class="num">5</div>
+            <h3>TUỔI TRẺ QUÂN ĐỘI “PHÁT HUY TRUYỀN THỐNG, CỐNG HIẾN TÀI NĂNG, XỨNG DANH BỘ ĐỘI CỤ HỒ”</h3>
+            <div class="card-footer">
+              <span>Click để xem PDF</span>
+              <span class="read">Mở trang →</span>
+            </div>
+          </div>
+        </a>
+      </section>
+
+      <div class="footer">
+        Thiết kế bởi Đại úy Trần Minh Đường
+      </div>
+    </section>
+
+    <section id="detailView" class="view">
+      <div class="detail-top">
+        <section class="hero-card">
+          <div class="hero-media">
+            <img id="heroImage" src="" alt="Ảnh đề mục">
+          </div>
+          <div class="hero-overlay">
+            <div class="hero-badges">
+              <div class="hero-tag" id="heroTag">Thư viện ảnh</div>
+              <div class="hero-count" id="heroCount">0 ảnh</div>
+            </div>
+            <div class="hero-bottom">
+              <p class="hero-mini" id="heroMini"></p>
+            </div>
+          </div>
+        </section>
+
+        <section class="info-card">
+          <div class="info-kicker">Chi tiết đề mục</div>
+          <h1 class="detail-hero-title" id="title">Đề mục</h1>
+          <p class="detail-hero-text" id="intro"></p>
+
+          <div class="meta" id="metaWrap">
+            <span>Đang tải nội dung…</span>
+          </div>
+
+          <div class="detail-toolbar">
+            <button class="btn btn-primary back" onclick="goHome()">← Quay lại trang danh sách</button>
+            <a class="btn btn-ghost" id="openPdfBtn" href="#" target="_blank" rel="noopener">Mở PDF tab mới</a>
+            <a class="btn btn-ghost" id="downloadPdfBtn" href="#" download>Tải PDF</a>
+            <button class="btn btn-ghost" id="openNoteBtn" type="button" onclick="openNotesModal()">Xem đầy đủ note</button>
+          </div>
+        </section>
+      </div>
+
+      <div class="layout">
+        <section class="detail-card">
+          <div class="head">
+            <h2>Xem PDF</h2>
+          </div>
+          <div class="pdf-wrap">
+            <div class="pdf-frame">
+              <iframe id="pdfFrame" src=""></iframe>
+            </div>
+          </div>
+          <div class="note" id="detailNote"></div>
+        </section>
+
+        <section class="detail-card">
+          <div class="head">
+            <h2>Thư viện ảnh</h2>
+          </div>
+          <div class="gallery-shell">
+            <div class="slider" id="sliderArea"></div>
+          </div>
+          <div class="head" style="padding-top:0;">
+            <h2>Chú thích ảnh</h2>
+          </div>
+          <div class="notes-grid" id="noteGrid"></div>
+        </section>
+      </div>
+    </section>
+  </div>
+
+  <div id="singleLightbox" class="single-lightbox" aria-hidden="true">
+    <div class="single-lightbox-panel" role="dialog" aria-modal="true" aria-label="Xem ảnh">
+      <button class="single-lightbox-close" type="button" aria-label="Đóng" onclick="closeSingleLightbox()">&times;</button>
+      <img id="singleLightboxImg" src="" alt="Xem ảnh">
+      <div class="single-lightbox-caption" id="singleLightboxCaption"></div>
+    </div>
+  </div>
+
+  <div id="notesModal" class="modal" aria-hidden="true">
+    <div class="modal-panel" role="dialog" aria-modal="true" aria-label="Toàn bộ ghi chú">
+      <div class="modal-head">
+        <h3 id="notesModalTitle">Toàn bộ note</h3>
+        <button class="modal-close" type="button" aria-label="Đóng" onclick="closeNotesModal()">&times;</button>
+      </div>
+      <div class="modal-body" id="notesModalBody"></div>
+    </div>
+  </div>
+
+  <script>
+    const data = {
+      1: {
+        title: "ĐẢNG CỘNG SẢN VIỆT NAM, NGƯỜI TỔ CHỨC VÀ LÃNH ĐẠO MỌI THẮNG LỢI CỦA CÁCH MẠNG VIỆT NAM",
+        intro: "",
+        heroImage: "./img/2/file corel phòng HCM 01.png",
+        pdfUrl: "./pdf/MẢNG ẢNH 1.pdf",
+        note:[
+          "Đảng cộng sản Việt Nam người tổ chức và lãnh đạo mọi thắng lợi của cách mạng Việt Nam",
+          "Chủ tịch Hồ Chí Minh 1890-1969",
+          "Hội nghị thành lập Đảng cộng sản Việt Nam ở Hồng Kông Trung quốc dưới sự chủ trì của đồng chí Nguyễn Ái Quốc",
+          "Cao trao Xô Viết Nghệ Tĩnh 1930-1931",
+          "Toàn cảnh Đại hội Đại biểu toàn quốc XIV của Đảng cộng sản Việt Nam",
+          "Cách mạng tháng 8 năm 1945 tại Hà nội",
+          "Bác Hồ và bộ chính trị bàn chiến dịch Đông xuân 1953-1954",
+          "Tiến vào Sài gòn giải phóng Miền nam thống nhất đất nước 30-4-1975",
+          "Đồng chí Trần Phú (1930-1931)",
+          "Đồng chí Lê Hồng Phong (1935-1936)",
+          "Đồng chí Hà Huy Tập (1936-1938)",
+          "Đồng chí Nguyễn Văn Cư (1938-1940)",
+          "Đồng chí Trường chinh (1941-1956) và 7/1986 - 12/1986",
+          "Đồng chí Lê Duẩn  (1960-1986)",
+          "Đồng chí Nguyễn Văn Linh (1986-1991)",
+          "Đồng chí Đỗ Mười  (1991-1997)",
+          "Đồng chí Lê Khả Phiêu  (1997-2001)",
+          "Đồng chí Nông Đức Mạnh (2001-2011)",
+          "Đồng chí Nguyễn Phú Trọng (2011-2024)",
+          "Đồng chí Tô Lâm ( từ tháng 8/2024 đến nay)",
+          "Công nghiệp hóa, Hiện đại hóa nông nghiệp nông thôn",
+          "Đa dạng hóa các nguồn năng lượng cho đất nước",
+          "Phát huy mạnh mẽ các nguồn lực để phát triển hạ tầng giao thông ngày càng hoàn thiện hiện đại",
+          "Nghành dầu khí Việt Nam vững bước hội nhập phát triển",
+          "Cử tri cả nước nô nức tham gia bầu cử Đại biểu quốc hội khóa XVI và HĐND các cấp nhiệm kỳ 2026-2031",
+          "Chăm lo thế hệ tương lai",
+          "Chăm lo xóa đói giảm nghèo thực hiện tiến bộ và công bằng xã hội",
+          "Công nghiệp không ngừng đổi mới nâng cao chất lượng công nghiệp hóa hiện đại hóa đất nước",
+          "Tăng cường quốc phòng – an ninh bảo vệ vững chắc tổ quốc Việt Nam xã hội chủ nghĩa",
+          "Chủ động hội nhập nâng cao vị thế của Việt Nam trên trường quốc tế"
+        ],
+        images: [
+          "./img/2/file corel phòng HCM 01.png",
+          "./img/2/file corel phòng HCM 02.png",
+          "./img/2/file corel phòng HCM 03.png",
+          "./img/2/file corel phòng HCM 04.png",
+          "./img/2/file corel phòng HCM 05.png",
+          "./img/2/file corel phòng HCM 06.png",
+          "./img/2/file corel phòng HCM 07.png",
+          "./img/2/file corel phòng HCM 08.png",
+          "./img/2/file corel phòng HCM 09.png",
+          "./img/2/file corel phòng HCM 010.png",
+          "./img/2/file corel phòng HCM 011.png",
+          "./img/2/file corel phòng HCM 012.png",
+          "./img/2/file corel phòng HCM 013.png",
+          "./img/2/file corel phòng HCM 014.png",
+          "./img/2/file corel phòng HCM 015.png",
+          "./img/2/file corel phòng HCM 016.png",
+          "./img/2/file corel phòng HCM 017.png",
+          "./img/2/file corel phòng HCM 018.png",
+          "./img/2/file corel phòng HCM 019.png"
+        ]
+      },
+      2: {
+        title: "VIỆT NAM- ĐẤT NƯỚC, CON NGƯỜI",
+        intro: "",
+        heroImage: "./img/3/file corel phòng HCM 01.png",
+        pdfUrl: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
+        note:[
+         "Việt Nam đất nước con người",
+         "“Nước Việt Nam có quyền hưởng Tự do và Độc lập và sự thật đã trở thành một nước tự do Độc lập. Toàn thể dân tộc Việt Nam quyết đem tất cả tinh thần và lực lượng tính mạng và của cải để giữ vững quyền Tự do Độc lập ấy”",
+         "Đồng chí Tô Lâm tổng bí thư BCH Trung ương Đảng cộng sản Việt Nam, Chủ tịch nước cộng hòa xã hội chủ nghĩa Việt Nam",
+         "Đồng chí Lê Minh Hưng thủ tướng Chính phủ nước cộng hòa xã hội chủ nghĩa Việt Nam",
+         "Đồng chí Trần Thanh Mẫn Chủ tịch quốc hội nước cộng hòa xã hội chủ nghĩa Việt Nam",
+         "Lễ hội đền hùng, tỉnh Phú Thọ",
+         "Đền thờ Lý Thường Kiệt ở xã Hà Ngọc huyện Hà Trung tỉnh Thanh Hóa",
+         "Chiến thắng Bạch Đằng 938 mở đầu kỷ nguyên độc lập của đất nước",
+         "Đền thờ Nguyễn Trãi ở Côn Sơn thành phố Chí Linh tỉnh Hải Dương",
+         "Khuê Văn các trong khu di tích Văn Miếu - Quốc Tử Giám, Hà Nội",
+         "Di tích cổ đô huế",
+         "Không gian văn hóa cồng chiêng Tây Nguyên - Di sản văn hóa phi vật thể đại diện của nhân loại",
+         "Vĩnh Hạ Long - Kì quan thiên nhiên thế giới, Quảng Ninh",
+         "Chợ bến Thành một biểu tượng của thành phố Hồ Chí Minh",
+         "Di tích Tháp Bà ponagar ở Nha Trang, tỉnh Khánh Hòa",
+         "Ruộng bậc than - cảnh đẹp độc đáo vùng Tây Bắc",
+         "Hang Sơn Đoòng ở huyện Bố Trạch tỉnh Quảng Bình hang động tự nhiên lớn nhất thế giới",
+         "Đua ghe Ngo - một nét văn hóa đặc sắc của đồng bào miền Tây Nam Bộ",
+         "Nhưng dấu ấn lịch sử văn hóa Việt Nam",
+         "“Dân ta có một lòng nồng nàn yêu nước. Đó là một truyền thống quý báu của ta, từ xưa đến nay, mỗi khi tổ quốc bị xâm lăng, thì tinh thần ấy lại sôi nổi, nó kết thành một làng sống vô cùng mạnh mẽ, to lớn, nó lướt qua mọi sự nguy hiểm, khó khăn nó nhấn chìm tất cả lũ bán nước và lũ cướp nước.”",
+         "54 dân tộc Việt Nam"
+        ],
+        images: [
+          "./img/3/file corel phòng HCM 01.png",
+          "./img/3/file corel phòng HCM 02.png",
+          "./img/3/file corel phòng HCM 03.png",
+          "./img/3/file corel phòng HCM 04.png",
+          "./img/3/file corel phòng HCM 05.png",
+          "./img/3/file corel phòng HCM 06.png",
+          "./img/3/file corel phòng HCM 07.png",
+          "./img/3/file corel phòng HCM 08.png",
+          "./img/3/file corel phòng HCM 09.png",
+          "./img/3/file corel phòng HCM 010.png",
+          "./img/3/file corel phòng HCM 011.png",
+          "./img/3/file corel phòng HCM 012.png",
+          "./img/3/file corel phòng HCM 013.png",
+          "./img/3/file corel phòng HCM 014.png",
+          "./img/3/file corel phòng HCM 015.png",
+          "./img/3/file corel phòng HCM 016.png",
+          "./img/3/file corel phòng HCM 017.png",
+          "./img/3/file corel phòng HCM 018.png",
+          "./img/3/file corel phòng HCM 019.png",
+          "./img/3/file corel phòng HCM 020.png",
+          "./img/3/file corel phòng HCM 021.png"
+        ]
+      },
+      3: {
+        title: "CHỦ TỊCH HỒ CHÍ MINH “CUỘC ĐỜI VÀ SỰ NGHIỆP”",
+        intro: "",
+        heroImage: "./img/1/file corel phòng HCM 01.png",
+        pdfUrl: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
+        note:[
+          "Bác Hồ làm việc trong vườn phủ Chủ tịch 1957",
+          "Bác Hồ với học sinh thủ đô – 1956",
+          "Bác Hồ thăm vùng mỏ Quảng Ninh – 1959",
+          "Bác Hồ thăm Trung đoàn Pháo cao xạ 234 - 19-07-1965",
+          "Bác Hồ với các anh hùng chiến sĩ miền nam - 1965",
+          "Bác Hồ với bà con nông dân ngoại thành hà nội 1961",
+          "Bác Hồ về thăm lại đồng bào Pắc Bó - Cao Bằng 20-02-1961",
+          "Quê ngoại Bác Hồ - làng Hoàng Trù – Kim Liên- Nam Đàn- Nghệ An",
+          "Cuốn Nhật ký trong tù bằng thơ và tác phẩm đường Kách Mệnh của Bác Hồ",
+          "Bến Cảng Nhà rồng (TP HCM) nơi Bác Hồ ra đi tìm đường cứu nước 5-6-1911",
+          "Bác Hồ ở mặt trận Đông Khê- chiến dịch biên giới 1950",
+          "Bác Hồ tại đại hội đảng xã hội pháp họp tại Tours – 1920",
+          "Ngày 2-3-1946 Bác Hồ được bầu Chủ tịch nước Việt Nam dân chủ cộng hòa",
+          "Bác Hồ đại hội Đảng lần III – 1960",
+          "Bác Hồ chăm sóc cây vú sữa do đồng bào Miền nam tặng – 1956",
+          "Nhà sàn Bác Hồ ở phủ Chủ tịch",
+          "Bác Hồ tại Đại hội quốc tế Cộng sản lần thứ V – matxcova-1924",
+          "Bác Hồ ở Việt bắc 1951",
+          "Bác Hồ bắt nhịp bài ca Kết đoàn 1960"
+        ],
+        images: [
+          "./img/1/file corel phòng HCM 01.png",
+          "./img/1/file corel phòng HCM 02.png",
+          "./img/1/file corel phòng HCM 03.png",
+          "./img/1/file corel phòng HCM 04.png",
+          "./img/1/file corel phòng HCM 05.png",
+          "./img/1/file corel phòng HCM 06.png",
+          "./img/1/file corel phòng HCM 07.png",
+          "./img/1/file corel phòng HCM 08.png",
+          "./img/1/file corel phòng HCM 09.png",
+          "./img/1/file corel phòng HCM 010.png",
+          "./img/1/file corel phòng HCM 011.png",
+          "./img/1/file corel phòng HCM 012.png",
+          "./img/1/file corel phòng HCM 013.png",
+          "./img/1/file corel phòng HCM 014.png",
+          "./img/1/file corel phòng HCM 015.png",
+          "./img/1/file corel phòng HCM 016.png",
+          "./img/1/file corel phòng HCM 017.png",
+          "./img/1/file corel phòng HCM 018.png",
+          "./img/1/file corel phòng HCM 019.png"
+        ]
+      },
+      4: {
+        title: "“QUÂN ĐỘI NHÂN DÂN VIỆT NAM - CÁCH MẠNG, CHÍNH QUY, TINH NHUỆ, HIỆN ĐẠI”",
+        intro: ".",
+        heroImage: "./img/4/file corel phòng HCM 07.png",
+        pdfUrl: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
+        note:[
+          "Đại tướng Phan Văn Giang Phó thủ tướng chính phủ nước chxhcn Việt Nam - Bộ Trưởng Bộ Quốc phòng",
+          "Đại tướng Nguyễn Trọng Nghĩa chủ nhiệm tổng cục chính trị QĐND Việt Nam",
+          "Đại tướng Nguyễn Tân Cương Tổng Tham Mưu Trưởng QĐND Việt Nam thứ trưởng Bộ Quốc Phòng",
+          "Không quân nhân dân Việt Nam huấn luyện SSCĐ",
+          "Đội hình diễu binh trên biển chào mừng kỉ niệm 80 Quốc khánh 2-9",
+          "Bộ đội tăng thiết giáp tham gia tập luyện A80",
+          "Bộ đội đặc công huấn luyện giỏi để đánh hiểm thắng lớn",
+          "Bộ đội công binh huấn luyện vượt sông",
+          "Bộ đội phòng không báo động SSCĐ",
+          "Bộ đội biên phòng - cột mốt sống nơi biên cương",
+          "Huấn luyện giỏi SSCĐ cao",
+          "Quan cảnh Đại hội Đại biểu Đảng bộ quân đội lần thứ VII, nhiệm kỳ 2025-2030",
+          "Những nét tiêu biểu nhất về bản chất cách mạng và truyền thống vẻ vang của QĐND Việt Nam",
+          "“Các vua Hùng đã có công dựng nước, Bác cháu ta phải cùng nhau giữ lấy nước”",
+          "Khai mạc triển lam quốc phòng, quốc tế tại Việt Nam năm 2024",
+          "Hội ý rút kinh nghiệm trong huấn luyện ở vùng đồng bằng sông nước",
+          "Tàu tuần tra của cảnh sát biển Việt Nam do tổng cục công nghiệp quốc phòng sản xuất",
+          "Hiện đại hóa hệ thống thông tin liên lạc",
+          "Làm tốt công tác bảo quản, bảo dưỡng vũ khí trang thiết bị kỹ thuật",
+          "Tập đoàn công nghiệp - viễn thông quân đội vững vàng phát triển",
+          "Thành lập đội Việt Nam Truyên Truyền giải phóng quân tại ninh bình cao bằng 22-12-1944",
+          "Chiến thắng Điện Biên Phủ 7-5-1954",
+          "Tiến vào Dinh Độc Lập - Chiến dịch Hồ Chí Minh toàn thắng 30-4-1975",
+          "Nhân dân Campuchia lưu luyến tiễn đưa quân tình nguyện Việt Nam hoàn thành nhiệm vụ Quốc tế trở về tổ quốc",
+          "Tình hữu nghi đoàn kết chiến đấu việt lào",
+          "Tham gia duyệt binh kỷ niệm 90 năm Ngày Chiến thắng phát xít tại Quảng trường Đỏ ngày 09/5/2025",
+          "Chương trình nghệ thuật Đất nước trọn niềm vui chào mừng kỷ niệm 50 năm Ngày Giải phóng miền nam, thống nhất đất nước, tháng 4/2025 tại Tp. Hồ Chí Minh",
+          "Các sĩ quan QĐND Việt Nam tham gia hoạt động Gìn giữ hòa bình Liên hiệp quốc",
+          "Bộ đội tên lửa huấn luyện bắn đạn thật",
+          "Huấn luyện kỹ thuật chuyên ngành cho lực lượng Dân quân tự vệ",
+          "Sát cánh cùng nhân dân vượt qua bão lũ",
+          "Khối nữ Quân nhạc tham gia duyệt binh Chào mừng kỷ niệm 80 năm Ngày Quốc khánh 02/9"
+        ],
+        images: [
+          "./img/4/file corel phòng HCM 01.png",
+          "./img/4/file corel phòng HCM 02.png",
+          "./img/4/file corel phòng HCM 03.png",
+          "./img/4/file corel phòng HCM 04.png",
+          "./img/4/file corel phòng HCM 05.png",
+          "./img/4/file corel phòng HCM 06.png",
+          "./img/4/file corel phòng HCM 07.png",
+          "./img/4/file corel phòng HCM 08.png",
+          "./img/4/file corel phòng HCM 09.png",
+          "./img/4/file corel phòng HCM 010.png",
+          "./img/4/file corel phòng HCM 011.png",
+          "./img/4/file corel phòng HCM 012.png",
+          "./img/4/file corel phòng HCM 013.png",
+          "./img/4/file corel phòng HCM 014.png",
+          "./img/4/file corel phòng HCM 015.png",
+          "./img/4/file corel phòng HCM 016.png",
+          "./img/4/file corel phòng HCM 017.png",
+          "./img/4/file corel phòng HCM 018.png",
+          "./img/4/file corel phòng HCM 019.png",
+          "./img/4/file corel phòng HCM 020.png",
+          "./img/4/file corel phòng HCM 021.png",
+          "./img/4/file corel phòng HCM 022.png",
+          "./img/4/file corel phòng HCM 023.png",
+          "./img/4/file corel phòng HCM 024.png",
+          "./img/4/file corel phòng HCM 025.png",
+          "./img/4/file corel phòng HCM 026.png",
+          "./img/4/file corel phòng HCM 027.png",
+          "./img/4/file corel phòng HCM 028.png",
+          "./img/4/file corel phòng HCM 029.png",
+          "./img/4/file corel phòng HCM 030.png",
+          "./img/4/file corel phòng HCM 031.png",
+          "./img/4/file corel phòng HCM 032.png"
+        ]
+      },
+      5: {
+        title: "TUỔI TRẺ QUÂN ĐỘI “PHÁT HUY TRUYỀN THỐNG, CỐNG HIẾN TÀI NĂNG, XỨNG DANH BỘ ĐỘI CỤ HỒ”",
+        intro: "",
+        heroImage: "./img/5/file corel phòng HCM 01.png",
+        pdfUrl: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
+        note:[
+          "Tuổi trẻ Quân đội Phấn đấu xứng danh Bộ đội Cụ Hồ Thời kỳ mới",
+          "“Đoàn viên và thanh niên ta nói chung là tốt mọi việc đều hăng hái xung phong, không ngại khó khăn, có chí tiến thủ. Đảng cần phải chăm lo giáo dục đạo đức cách mạng cho họ. Đào tạo họ thành những người thừa kế xây đựng xã hội thế hệ cách mạng cho đời sau là một việc rất quan trọng và rất cần thiết”",
+          "Lý Tự Trọng",
+          "Võ Thị sáu",
+          "Phan Đình Giót",
+          "Nguyễn Văn Trỗi",
+          "Nguyễn Viết Xuân",
+          "Bộ đội Hải quân huấn luyện SSCĐ",
+          "",
+          "Tiếp bước cha anh",
+          "Tuổi trẻ cả nước phấn khởi lên đường nhập ngũ",
+          "Một buổi lễ kết nạp Đảng viên trên thao trường",
+          "“Vượt chông gai”",
+          "Sản xuất thành công súng đại liên PKMS ở Nhà máy Z111 Tổng cục CNQP",
+          "Lễ trao giải thưởng Tuổi trẻ sáng tạo trong quân đội",
+          "Bộ đội Hải quân huấn luyện SSCĐ",
+          "Hướng ứng Ngày chạy thể thao Quân sự thế giới hợp chạy Olimpic ở đơn vị quân đội",
+          "Huấn luyện làm chủ khí tài trang bị VSAT ở Bình chủng thông tin liên lạc",
+          "Bộ đội Biên phòng tuần tra bảo vệ biên cương Tổ Quốc",
+          "Tuổi trẻ Bộ Tư lệnh 86 tổ chức diễn tập trên không gian mạng",
+          "Một buổi huấn luyện thực hành ở Trường sĩ quan Pháo binh",
+          "Học viên, đoàn viên thanh niên Học viện Quân y trong ngày hội Hiến máu tình nguyện",
+          "Tuổi trẻ Tập đoàn Công Nghiệp - Viễn thông Quân đội xung kích nghiên cứu khoa học, ứng dụng công nghệ số",
+          "Tuổi trẻ Quân chủng Phòng không - không quân bay cứu nạn trong diễn tập quốc gia",
+          "Tuổi trẻ Cảnh sát Việt Nam làm nhiệm vụ chấp pháp trên biển",
+          "Tuổi trẻ Quân đội với bạn bè quốc tế",
+          "Bộ đội Tăng Thiết giáp tham gia Hội thao quân sự Quốc tế Army Games",
+          "Tuổi trẻ các đơn vị tham gia biểu diễn tại Lễ khai mạc triển lãm Quốc phòng Quốc tế “Hòa bình, hữu nghị, hợp tác, cùng phát triển” tại Việt Nam",
+          "Chương trình nghệ thuật “Cùng nhau giữ nước” Chào mừng kỷ niệm 80 năm Ngày thành lập QĐND Việt Nam tại Hoàng Thăng Long, tháng 12/2024"
+        ],
+        images: [
+          "./img/5/file corel phòng HCM 01.png",
+          "./img/5/file corel phòng HCM 02.png",
+          "./img/5/file corel phòng HCM 03.png",
+          "./img/5/file corel phòng HCM 04.png",
+          "./img/5/file corel phòng HCM 05.png",
+          "./img/5/file corel phòng HCM 06.png",
+          "./img/5/file corel phòng HCM 07.png",
+          "./img/5/file corel phòng HCM 08.png",
+          "./img/5/file corel phòng HCM 09.png",
+          "./img/5/file corel phòng HCM 010.png",
+          "./img/5/file corel phòng HCM 011.png",
+          "./img/5/file corel phòng HCM 012.png",
+          "./img/5/file corel phòng HCM 013.png",
+          "./img/5/file corel phòng HCM 014.png",
+          "./img/5/file corel phòng HCM 015.png",
+          "./img/5/file corel phòng HCM 016.png",
+          "./img/5/file corel phòng HCM 017.png",
+          "./img/5/file corel phòng HCM 018.png",
+          "./img/5/file corel phòng HCM 019.png",
+          "./img/5/file corel phòng HCM 020.png",
+          "./img/5/file corel phòng HCM 021.png",
+          "./img/5/file corel phòng HCM 022.png",
+          "./img/5/file corel phòng HCM 023.png",
+          "./img/5/file corel phòng HCM 024.png",
+          "./img/5/file corel phòng HCM 025.png",
+          "./img/5/file corel phòng HCM 026.png",
+          "./img/5/file corel phòng HCM 027.png",
+          "./img/5/file corel phòng HCM 028.png",
+          "./img/5/file corel phòng HCM 029.png"
+        ]
+      }
+    };
+
+    let currentSlides = [];
+    let currentCaptions = [];
+    let currentSlideIndex = 0;
+    let currentNotes = [];
+    let currentPageData = null;
+
+    function safeText(v){
+      return (v ?? "").toString().trim();
+    }
+
+    function escapeHtml(str){
+      return safeText(str)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#39;");
+    }
+
+    function buildCaptions(page){
+      const images = page.images || [];
+      const notes = page.note || [];
+      return images.map((src, i) => {
+        const n = safeText(notes[i]);
+        return n ? n : `${page.title} — Ảnh ${i + 1}`;
+      });
+    }
+
+    function buildNotePairs(page){
+      const images = page.images || [];
+      const notes = page.note || [];
+      return images.map((src, i) => ({
+        index: i + 1,
+        title: `Ảnh ${i + 1}`,
+        note: safeText(notes[i]) || `${page.title} — Ảnh ${i + 1}`
+      }));
+    }
+
+    function renderSlider(page){
+      const sliderArea = document.getElementById("sliderArea");
+      const noteGrid = document.getElementById("noteGrid");
+
+      currentSlides = page.images || [];
+      currentCaptions = buildCaptions(page);
+      currentNotes = buildNotePairs(page);
+      currentSlideIndex = 0;
+
+      if (!currentSlides.length){
+        sliderArea.innerHTML = `
+          <div class="slider-main" style="aspect-ratio:16/10;">
+            <div class="slide active" style="position:relative;opacity:1;transform:none;pointer-events:auto;cursor:default;">
+              <img src="${escapeHtml(page.heroImage || '')}" alt="Không có ảnh trong thư viện">
+              <div class="slide-caption">Chưa có ảnh trong thư viện.</div>
+            </div>
+          </div>
+        `;
+        noteGrid.innerHTML = "";
+        return;
+      }
+
+      sliderArea.innerHTML = `
+        <div class="slider-main">
+          ${currentSlides.map((src, i) => `
+            <div class="slide ${i === 0 ? "active" : ""}" data-index="${i}" role="button" tabindex="0" title="Bấm để xem ảnh">
+              <img src="${escapeHtml(src)}" alt="Ảnh ${i + 1}" loading="lazy">
+            </div>
+          `).join("")}
+          <div class="slide-count" id="slideCount">1 / ${currentSlides.length}</div>
+          <button class="slider-btn prev" type="button" aria-label="Ảnh trước" onclick="changeSlide(-1)">‹</button>
+          <button class="slider-btn next" type="button" aria-label="Ảnh sau" onclick="changeSlide(1)">›</button>
+          <div class="slide-caption" id="slideCaption">${escapeHtml(currentCaptions[0] || "")}</div>
+        </div>
+        <div class="thumb-strip">
+          ${currentSlides.map((src, i) => `
+            <button class="thumb-item ${i === 0 ? "active" : ""}" type="button" data-index="${i}" title="${escapeHtml(currentCaptions[i] || "")}">
+              <img src="${escapeHtml(src)}" alt="Thumbnail ${i + 1}" loading="lazy">
+              <div class="thumb-caption">${escapeHtml(currentCaptions[i] || `Ảnh ${i + 1}`)}</div>
+            </button>
+          `).join("")}
+        </div>
+      `;
+
+      noteGrid.innerHTML = currentNotes.map((item, i) => `
+        <button class="note-item ${i === 0 ? "active" : ""}" type="button" data-index="${i}" title="${escapeHtml(item.note)}">
+          <div class="note-index">${item.index}</div>
+          <div class="note-content">
+            <p class="note-title">${escapeHtml(item.title)}</p>
+            <p class="note-preview">${escapeHtml(item.note)}</p>
+          </div>
+        </button>
+      `).join("");
+
+      sliderArea.querySelectorAll(".slide").forEach(el => {
+        el.addEventListener("click", () => {
+          const index = Number(el.dataset.index || 0);
+          openSingleLightbox(currentSlides[index], currentCaptions[index]);
+        });
+        el.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            const index = Number(el.dataset.index || 0);
+            openSingleLightbox(currentSlides[index], currentCaptions[index]);
+          }
+        });
+      });
+
+      sliderArea.querySelectorAll(".thumb-item").forEach(el => {
+        el.addEventListener("click", () => {
+          const index = Number(el.dataset.index || 0);
+          openSingleLightbox(currentSlides[index], currentCaptions[index]);
+        });
+      });
+
+      noteGrid.querySelectorAll(".note-item").forEach(el => {
+        el.addEventListener("click", () => {
+          const index = Number(el.dataset.index || 0);
+          openSingleLightbox(currentSlides[index], currentCaptions[index]);
+        });
+      });
+
+      syncSlideUI();
+    }
+
+    function syncSlideUI(){
+      const slides = document.querySelectorAll(".slide");
+      const thumbs = document.querySelectorAll(".thumb-item");
+      const notes = document.querySelectorAll(".note-item");
+      const slideCount = document.getElementById("slideCount");
+      const slideCaption = document.getElementById("slideCaption");
+
+      slides.forEach((el, i) => el.classList.toggle("active", i === currentSlideIndex));
+      thumbs.forEach((el, i) => el.classList.toggle("active", i === currentSlideIndex));
+      notes.forEach((el, i) => el.classList.toggle("active", i === currentSlideIndex));
+
+      if (slideCount) slideCount.textContent = `${currentSlideIndex + 1} / ${currentSlides.length}`;
+      if (slideCaption) slideCaption.textContent = currentCaptions[currentSlideIndex] || "";
+
+      const img = document.getElementById("singleLightboxImg");
+      const caption = document.getElementById("singleLightboxCaption");
+      if (document.getElementById("singleLightbox")?.classList.contains("open")) {
+        if (img) img.src = currentSlides[currentSlideIndex] || "";
+        if (caption) caption.textContent = currentCaptions[currentSlideIndex] || "";
+      }
+    }
+
+    function setSlide(index){
+      if (!currentSlides.length) return;
+      currentSlideIndex = (index + currentSlides.length) % currentSlides.length;
+      syncSlideUI();
+    }
+
+    function changeSlide(step){
+      setSlide(currentSlideIndex + step);
+    }
+
+    function openSingleLightbox(src, caption){
+      const box = document.getElementById("singleLightbox");
+      const img = document.getElementById("singleLightboxImg");
+      const cap = document.getElementById("singleLightboxCaption");
+
+      if (img) img.src = src || "";
+      if (cap) cap.textContent = caption || "";
+
+      if (box) {
+        box.classList.add("open");
+        box.setAttribute("aria-hidden", "false");
+      }
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeSingleLightbox(){
+      const box = document.getElementById("singleLightbox");
+      if (box) {
+        box.classList.remove("open");
+        box.setAttribute("aria-hidden", "true");
+      }
+      document.body.style.overflow = "";
+    }
+
+    function openNotesModal(){
+      const modal = document.getElementById("notesModal");
+      const title = document.getElementById("notesModalTitle");
+      const body = document.getElementById("notesModalBody");
+      const page = currentPageData || data[1];
+
+      title.textContent = page.title || "Toàn bộ note";
+      const notes = (page.note || []).map((n, i) => ({
+        index: i + 1,
+        text: safeText(n) || `${page.title} — Ảnh ${i + 1}`
+      }));
+
+      body.innerHTML = `
+        <p><strong>Tên đề mục:</strong> ${escapeHtml(page.title || "")}</p>
+        <div class="full-note-list">
+          ${notes.map(n => `<div class="full-note"><strong>${n.index}.</strong> ${escapeHtml(n.text)}</div>`).join("")}
+        </div>
+      `;
+
+      modal.classList.add("open");
+      modal.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeNotesModal(){
+      const modal = document.getElementById("notesModal");
+      if (modal){
+        modal.classList.remove("open");
+        modal.setAttribute("aria-hidden", "true");
+      }
+      document.body.style.overflow = "";
+    }
+
+    function renderDetail(id){
+      const page = data[id] || data[1];
+      currentPageData = page;
+
+      document.title = page.title + " - Chi tiết";
+      document.getElementById("title").textContent = page.title;
+      document.getElementById("intro").textContent = page.intro;
+      document.getElementById("heroMini").textContent = page.intro;
+      document.getElementById("heroImage").src = page.heroImage;
+      document.getElementById("heroImage").alt = page.title;
+      document.getElementById("pdfFrame").src = page.pdfUrl;
+      document.getElementById("openPdfBtn").href = page.pdfUrl;
+      document.getElementById("downloadPdfBtn").href = page.pdfUrl;
+
+      const total = (page.images || []).length;
+      const noteCount = (page.note || []).length;
+
+      document.getElementById("heroTag").textContent = "Thư viện ảnh";
+      document.getElementById("heroCount").textContent = `${total} ảnh`;
+      document.getElementById("detailNote").innerHTML = `
+        <strong>Gợi ý:</strong> bấm từng ảnh hoặc từng note để mở xem ảnh đơn.
+      `;
+
+      const meta = document.getElementById("metaWrap");
+      meta.innerHTML = `
+        <span>${total} ảnh minh họa</span>
+        <span>${noteCount} chú thích</span>
+        <span>1 PDF tài liệu</span>
+      `;
+
+      renderSlider(page);
+    }
+
+    function openItem(id){
+      renderDetail(id);
+      document.getElementById("homeView").classList.remove("active");
+      document.getElementById("detailView").classList.add("active");
+      history.pushState({view:"detail", id}, "", "#item-" + id);
+      window.scrollTo({top:0, behavior:"smooth"});
+    }
+
+    function goHome(){
+      document.getElementById("detailView").classList.remove("active");
+      document.getElementById("homeView").classList.add("active");
+      document.title = "Phòng Hồ Chí Minh Tiểu đoàn 6";
+      history.pushState({view:"home"}, "", "#home");
+      window.scrollTo({top:0, behavior:"smooth"});
+      closeSingleLightbox();
+      closeNotesModal();
+    }
+
+    window.addEventListener("popstate", (e) => {
+      const state = e.state || {};
+      if (state.view === "detail") {
+        document.getElementById("homeView").classList.remove("active");
+        document.getElementById("detailView").classList.add("active");
+        renderDetail(state.id || 1);
+      } else {
+        document.getElementById("detailView").classList.remove("active");
+        document.getElementById("homeView").classList.add("active");
+        document.title = "Phòng Hồ Chí Minh Tiểu đoàn 6";
+      }
+      closeSingleLightbox();
+      closeNotesModal();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      const single = document.getElementById("singleLightbox");
+      const modal = document.getElementById("notesModal");
+
+      if (single && single.classList.contains("open") && e.key === "Escape") {
+        closeSingleLightbox();
+      }
+
+      if (modal && modal.classList.contains("open") && e.key === "Escape") {
+        closeNotesModal();
+      }
+
+      if (document.getElementById("detailView").classList.contains("active") && !single?.classList.contains("open")) {
+        if (e.key === "ArrowLeft") changeSlide(-1);
+        if (e.key === "ArrowRight") changeSlide(1);
+      }
+    });
+
+    document.addEventListener("click", (e) => {
+      const single = document.getElementById("singleLightbox");
+      const modal = document.getElementById("notesModal");
+
+      if (single && e.target === single) closeSingleLightbox();
+      if (modal && e.target === modal) closeNotesModal();
+    });
+
+    (function init(){
+      const hash = location.hash;
+      if (hash.startsWith("#item-")) {
+        const id = hash.replace("#item-", "");
+        renderDetail(id);
+        document.getElementById("homeView").classList.remove("active");
+        document.getElementById("detailView").classList.add("active");
+        history.replaceState({view:"detail", id}, "", hash);
+      } else {
+        history.replaceState({view:"home"}, "", "#home");
+      }
+    })();
+
+    // 
+    // Hiệu ứng mưa/tuyết + logo giữa màn hình 2 giây/lần
+(function initEffects(){
+  const fxLayer = document.getElementById("fxLayer");
+  if (!fxLayer) return;
+
+  const isSnowMode = false; // đổi true nếu muốn hạt kiểu tuyết, false là mưa
+
+  function spawnDrop(){
+    const el = document.createElement("span");
+    el.className = isSnowMode ? "fx-snow" : "fx-drop";
+
+    const left = Math.random() * 100;
+    const duration = 3 + Math.random() * 3.5;
+    const drift = (Math.random() * 80 - 40).toFixed(0) + "px";
+    const size = isSnowMode ? (6 + Math.random() * 7) : (1.5 + Math.random() * 2.5);
+
+    el.style.left = left + "vw";
+    el.style.animationDuration = duration + "s";
+    el.style.setProperty("--drift", drift);
+
+    if (isSnowMode) {
+      el.style.width = size + "px";
+      el.style.height = size + "px";
+      el.style.opacity = 0.75;
+    } else {
+      el.style.width = size + "px";
+      el.style.height = (14 + Math.random() * 18) + "px";
+      el.style.opacity = 0.55;
+    }
+
+    fxLayer.appendChild(el);
+    setTimeout(() => el.remove(), (duration + 0.2) * 1000);
+  }
+
+ function spawnLogoBurst(){
+  const el = document.createElement("div");
+  el.className = "fx-logo-burst";
+  el.innerHTML = `<img src="./img/logo.png" alt="logo">`;
+
+  const positions = ["20vw", "50vw", "80vw"];
+  const x = positions[Math.floor(Math.random() * positions.length)];
+  const y = (35 + Math.random() * 25) + "vh"; // lúc trên hơn, lúc thấp hơn chút
+
+  el.style.left = x;
+  el.style.top = y;
+
+  fxLayer.appendChild(el);
+  setTimeout(() => el.remove(), 2100);
+}
+
+  // Tạo hạt rơi liên tục
+  setInterval(() => {
+    // thả nhiều hạt cùng lúc cho tự nhiên hơn
+    for (let i = 0; i < 3; i++) spawnDrop();
+  }, 180);
+
+  // Logo giữa màn hình mỗi 2 giây
+  spawnLogoBurst();
+  setInterval(spawnLogoBurst, 4000);
+})();
+  </script>
+</body>
+</html>

@@ -1041,12 +1041,13 @@
   </style>
 </head>
 <body>
+    <audio id="detailAudio" preload="auto"></audio>
   <div class="fx-layer" id="fxLayer"></div>
   <div class="wrap">
     <div class="topbar">
       <div class="brand">
         <div class="logo">
-          <img src="./img/logo.png" alt="logo">
+          <img src="./img/logo.webp" alt="logo">
         </div>
         <div class="brand-text">Phòng Hồ Chí Minh Tiểu đoàn 6</div>
       </div>
@@ -1062,7 +1063,7 @@
       <section class="grid">
         <a class="card" href="javascript:void(0)" onclick="openItem(1)">
           <div class="thumb">
-            <img src="./img/2/file corel phòng HCM 01.png" alt="Đề mục 1">
+            <img src="./img/2/file corel phòng HCM 01.webp" alt="Đề mục 1">
           </div>
           <div class="content">
             <div class="num">1</div>
@@ -1076,7 +1077,7 @@
 
         <a class="card" href="javascript:void(0)" onclick="openItem(2)">
           <div class="thumb">
-            <img src="./img/3/file corel phòng HCM 01.png" alt="Đề mục 2">
+            <img src="./img/3/file corel phòng HCM 01.webp" alt="Đề mục 2">
           </div>
           <div class="content">
             <div class="num">2</div>
@@ -1090,7 +1091,7 @@
 
         <a class="card" href="javascript:void(0)" onclick="openItem(3)">
           <div class="thumb">
-            <img src="./img/1/file corel phòng HCM 01.png" alt="Đề mục 3">
+            <img src="./img/1/file corel phòng HCM 01.webp" alt="Đề mục 3">
           </div>
           <div class="content">
             <div class="num">3</div>
@@ -1104,7 +1105,7 @@
 
         <a class="card" href="javascript:void(0)" onclick="openItem(4)">
           <div class="thumb">
-            <img src="./img/4/file corel phòng HCM 07.png" alt="Đề mục 4">
+            <img src="./img/4/file corel phòng HCM 07.webp" alt="Đề mục 4">
           </div>
           <div class="content">
             <div class="num">4</div>
@@ -1118,7 +1119,7 @@
 
         <a class="card" href="javascript:void(0)" onclick="openItem(5)">
           <div class="thumb">
-            <img src="./img/5/file corel phòng HCM 01.png" alt="Đề mục 5">
+            <img src="./img/5/file corel phòng HCM 01.webp" alt="Đề mục 5">
           </div>
           <div class="content">
             <div class="num">5</div>
@@ -1223,8 +1224,9 @@
       1: {
         title: "ĐẢNG CỘNG SẢN VIỆT NAM, NGƯỜI TỔ CHỨC VÀ LÃNH ĐẠO MỌI THẮNG LỢI CỦA CÁCH MẠNG VIỆT NAM",
         intro: "",
-        heroImage: "./img/2/file corel phòng HCM 01.png",
+        heroImage: "./img/2/file corel phòng HCM 01.webp",
         pdfUrl: "./pdf/MẢNG ẢNH 1.pdf",
+        audio:"./mp3/mang1.mp3",
         note:[
           "Đảng cộng sản Việt Nam người tổ chức và lãnh đạo mọi thắng lợi của cách mạng Việt Nam",
           "Chủ tịch Hồ Chí Minh 1890-1969",
@@ -1258,32 +1260,33 @@
           "Chủ động hội nhập nâng cao vị thế của Việt Nam trên trường quốc tế"
         ],
         images: [
-          "./img/2/file corel phòng HCM 01.png",
-          "./img/2/file corel phòng HCM 02.png",
-          "./img/2/file corel phòng HCM 03.png",
-          "./img/2/file corel phòng HCM 04.png",
-          "./img/2/file corel phòng HCM 05.png",
-          "./img/2/file corel phòng HCM 06.png",
-          "./img/2/file corel phòng HCM 07.png",
-          "./img/2/file corel phòng HCM 08.png",
-          "./img/2/file corel phòng HCM 09.png",
-          "./img/2/file corel phòng HCM 010.png",
-          "./img/2/file corel phòng HCM 011.png",
-          "./img/2/file corel phòng HCM 012.png",
-          "./img/2/file corel phòng HCM 013.png",
-          "./img/2/file corel phòng HCM 014.png",
-          "./img/2/file corel phòng HCM 015.png",
-          "./img/2/file corel phòng HCM 016.png",
-          "./img/2/file corel phòng HCM 017.png",
-          "./img/2/file corel phòng HCM 018.png",
-          "./img/2/file corel phòng HCM 019.png"
+          "./img/2/file corel phòng HCM 01.webp",
+          "./img/2/file corel phòng HCM 02.webp",
+          "./img/2/file corel phòng HCM 03.webp",
+          "./img/2/file corel phòng HCM 04.webp",
+          "./img/2/file corel phòng HCM 05.webp",
+          "./img/2/file corel phòng HCM 06.webp",
+          "./img/2/file corel phòng HCM 07.webp",
+          "./img/2/file corel phòng HCM 08.webp",
+          "./img/2/file corel phòng HCM 09.webp",
+          "./img/2/file corel phòng HCM 010.webp",
+          "./img/2/file corel phòng HCM 011.webp",
+          "./img/2/file corel phòng HCM 012.webp",
+          "./img/2/file corel phòng HCM 013.webp",
+          "./img/2/file corel phòng HCM 014.webp",
+          "./img/2/file corel phòng HCM 015.webp",
+          "./img/2/file corel phòng HCM 016.webp",
+          "./img/2/file corel phòng HCM 017.webp",
+          "./img/2/file corel phòng HCM 018.webp",
+          "./img/2/file corel phòng HCM 019.webp"
         ]
       },
       2: {
         title: "VIỆT NAM- ĐẤT NƯỚC, CON NGƯỜI",
         intro: "",
-        heroImage: "./img/3/file corel phòng HCM 01.png",
-        pdfUrl: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
+        heroImage: "./img/3/file corel phòng HCM 01.webp",
+        pdfUrl: "./pdf/MẢNG ẢNH 2.pdf",
+        audio:"./mp3/mang2.mp3",
         note:[
          "Việt Nam đất nước con người",
          "“Nước Việt Nam có quyền hưởng Tự do và Độc lập và sự thật đã trở thành một nước tự do Độc lập. Toàn thể dân tộc Việt Nam quyết đem tất cả tinh thần và lực lượng tính mạng và của cải để giữ vững quyền Tự do Độc lập ấy”",
@@ -1308,34 +1311,35 @@
          "54 dân tộc Việt Nam"
         ],
         images: [
-          "./img/3/file corel phòng HCM 01.png",
-          "./img/3/file corel phòng HCM 02.png",
-          "./img/3/file corel phòng HCM 03.png",
-          "./img/3/file corel phòng HCM 04.png",
-          "./img/3/file corel phòng HCM 05.png",
-          "./img/3/file corel phòng HCM 06.png",
-          "./img/3/file corel phòng HCM 07.png",
-          "./img/3/file corel phòng HCM 08.png",
-          "./img/3/file corel phòng HCM 09.png",
-          "./img/3/file corel phòng HCM 010.png",
-          "./img/3/file corel phòng HCM 011.png",
-          "./img/3/file corel phòng HCM 012.png",
-          "./img/3/file corel phòng HCM 013.png",
-          "./img/3/file corel phòng HCM 014.png",
-          "./img/3/file corel phòng HCM 015.png",
-          "./img/3/file corel phòng HCM 016.png",
-          "./img/3/file corel phòng HCM 017.png",
-          "./img/3/file corel phòng HCM 018.png",
-          "./img/3/file corel phòng HCM 019.png",
-          "./img/3/file corel phòng HCM 020.png",
-          "./img/3/file corel phòng HCM 021.png"
+          "./img/3/file corel phòng HCM 01.webp",
+          "./img/3/file corel phòng HCM 02.webp",
+          "./img/3/file corel phòng HCM 03.webp",
+          "./img/3/file corel phòng HCM 04.webp",
+          "./img/3/file corel phòng HCM 05.webp",
+          "./img/3/file corel phòng HCM 06.webp",
+          "./img/3/file corel phòng HCM 07.webp",
+          "./img/3/file corel phòng HCM 08.webp",
+          "./img/3/file corel phòng HCM 09.webp",
+          "./img/3/file corel phòng HCM 010.webp",
+          "./img/3/file corel phòng HCM 011.webp",
+          "./img/3/file corel phòng HCM 012.webp",
+          "./img/3/file corel phòng HCM 013.webp",
+          "./img/3/file corel phòng HCM 014.webp",
+          "./img/3/file corel phòng HCM 015.webp",
+          "./img/3/file corel phòng HCM 016.webp",
+          "./img/3/file corel phòng HCM 017.webp",
+          "./img/3/file corel phòng HCM 018.webp",
+          "./img/3/file corel phòng HCM 019.webp",
+          "./img/3/file corel phòng HCM 020.webp",
+          "./img/3/file corel phòng HCM 021.webp"
         ]
       },
       3: {
         title: "CHỦ TỊCH HỒ CHÍ MINH “CUỘC ĐỜI VÀ SỰ NGHIỆP”",
         intro: "",
-        heroImage: "./img/1/file corel phòng HCM 01.png",
-        pdfUrl: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
+        heroImage: "./img/1/file corel phòng HCM 01.webp",
+        pdfUrl: "./pdf/MẢNG ẢNH 3.pdf",
+        audio:"./mp3/mang3.mp3",
         note:[
           "Bác Hồ làm việc trong vườn phủ Chủ tịch 1957",
           "Bác Hồ với học sinh thủ đô – 1956",
@@ -1358,32 +1362,33 @@
           "Bác Hồ bắt nhịp bài ca Kết đoàn 1960"
         ],
         images: [
-          "./img/1/file corel phòng HCM 01.png",
-          "./img/1/file corel phòng HCM 02.png",
-          "./img/1/file corel phòng HCM 03.png",
-          "./img/1/file corel phòng HCM 04.png",
-          "./img/1/file corel phòng HCM 05.png",
-          "./img/1/file corel phòng HCM 06.png",
-          "./img/1/file corel phòng HCM 07.png",
-          "./img/1/file corel phòng HCM 08.png",
-          "./img/1/file corel phòng HCM 09.png",
-          "./img/1/file corel phòng HCM 010.png",
-          "./img/1/file corel phòng HCM 011.png",
-          "./img/1/file corel phòng HCM 012.png",
-          "./img/1/file corel phòng HCM 013.png",
-          "./img/1/file corel phòng HCM 014.png",
-          "./img/1/file corel phòng HCM 015.png",
-          "./img/1/file corel phòng HCM 016.png",
-          "./img/1/file corel phòng HCM 017.png",
-          "./img/1/file corel phòng HCM 018.png",
-          "./img/1/file corel phòng HCM 019.png"
+          "./img/1/file corel phòng HCM 01.webp",
+          "./img/1/file corel phòng HCM 02.webp",
+          "./img/1/file corel phòng HCM 03.webp",
+          "./img/1/file corel phòng HCM 04.webp",
+          "./img/1/file corel phòng HCM 05.webp",
+          "./img/1/file corel phòng HCM 06.webp",
+          "./img/1/file corel phòng HCM 07.webp",
+          "./img/1/file corel phòng HCM 08.webp",
+          "./img/1/file corel phòng HCM 09.webp",
+          "./img/1/file corel phòng HCM 010.webp",
+          "./img/1/file corel phòng HCM 011.webp",
+          "./img/1/file corel phòng HCM 012.webp",
+          "./img/1/file corel phòng HCM 013.webp",
+          "./img/1/file corel phòng HCM 014.webp",
+          "./img/1/file corel phòng HCM 015.webp",
+          "./img/1/file corel phòng HCM 016.webp",
+          "./img/1/file corel phòng HCM 017.webp",
+          "./img/1/file corel phòng HCM 018.webp",
+          "./img/1/file corel phòng HCM 019.webp"
         ]
       },
       4: {
         title: "“QUÂN ĐỘI NHÂN DÂN VIỆT NAM - CÁCH MẠNG, CHÍNH QUY, TINH NHUỆ, HIỆN ĐẠI”",
         intro: ".",
-        heroImage: "./img/4/file corel phòng HCM 07.png",
-        pdfUrl: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
+        heroImage: "./img/4/file corel phòng HCM 07.webp",
+        pdfUrl: "./pdf/MẢNG ẢNH 4.pdf",
+        audio:"./mp3/mang4.mp3",
         note:[
           "Đại tướng Phan Văn Giang Phó thủ tướng chính phủ nước chxhcn Việt Nam - Bộ Trưởng Bộ Quốc phòng",
           "Đại tướng Nguyễn Trọng Nghĩa chủ nhiệm tổng cục chính trị QĐND Việt Nam",
@@ -1419,45 +1424,46 @@
           "Khối nữ Quân nhạc tham gia duyệt binh Chào mừng kỷ niệm 80 năm Ngày Quốc khánh 02/9"
         ],
         images: [
-          "./img/4/file corel phòng HCM 01.png",
-          "./img/4/file corel phòng HCM 02.png",
-          "./img/4/file corel phòng HCM 03.png",
-          "./img/4/file corel phòng HCM 04.png",
-          "./img/4/file corel phòng HCM 05.png",
-          "./img/4/file corel phòng HCM 06.png",
-          "./img/4/file corel phòng HCM 07.png",
-          "./img/4/file corel phòng HCM 08.png",
-          "./img/4/file corel phòng HCM 09.png",
-          "./img/4/file corel phòng HCM 010.png",
-          "./img/4/file corel phòng HCM 011.png",
-          "./img/4/file corel phòng HCM 012.png",
-          "./img/4/file corel phòng HCM 013.png",
-          "./img/4/file corel phòng HCM 014.png",
-          "./img/4/file corel phòng HCM 015.png",
-          "./img/4/file corel phòng HCM 016.png",
-          "./img/4/file corel phòng HCM 017.png",
-          "./img/4/file corel phòng HCM 018.png",
-          "./img/4/file corel phòng HCM 019.png",
-          "./img/4/file corel phòng HCM 020.png",
-          "./img/4/file corel phòng HCM 021.png",
-          "./img/4/file corel phòng HCM 022.png",
-          "./img/4/file corel phòng HCM 023.png",
-          "./img/4/file corel phòng HCM 024.png",
-          "./img/4/file corel phòng HCM 025.png",
-          "./img/4/file corel phòng HCM 026.png",
-          "./img/4/file corel phòng HCM 027.png",
-          "./img/4/file corel phòng HCM 028.png",
-          "./img/4/file corel phòng HCM 029.png",
-          "./img/4/file corel phòng HCM 030.png",
-          "./img/4/file corel phòng HCM 031.png",
-          "./img/4/file corel phòng HCM 032.png"
+          "./img/4/file corel phòng HCM 01.webp",
+          "./img/4/file corel phòng HCM 02.webp",
+          "./img/4/file corel phòng HCM 03.webp",
+          "./img/4/file corel phòng HCM 04.webp",
+          "./img/4/file corel phòng HCM 05.webp",
+          "./img/4/file corel phòng HCM 06.webp",
+          "./img/4/file corel phòng HCM 07.webp",
+          "./img/4/file corel phòng HCM 08.webp",
+          "./img/4/file corel phòng HCM 09.webp",
+          "./img/4/file corel phòng HCM 010.webp",
+          "./img/4/file corel phòng HCM 011.webp",
+          "./img/4/file corel phòng HCM 012.webp",
+          "./img/4/file corel phòng HCM 013.webp",
+          "./img/4/file corel phòng HCM 014.webp",
+          "./img/4/file corel phòng HCM 015.webp",
+          "./img/4/file corel phòng HCM 016.webp",
+          "./img/4/file corel phòng HCM 017.webp",
+          "./img/4/file corel phòng HCM 018.webp",
+          "./img/4/file corel phòng HCM 019.webp",
+          "./img/4/file corel phòng HCM 020.webp",
+          "./img/4/file corel phòng HCM 021.webp",
+          "./img/4/file corel phòng HCM 022.webp",
+          "./img/4/file corel phòng HCM 023.webp",
+          "./img/4/file corel phòng HCM 024.webp",
+          "./img/4/file corel phòng HCM 025.webp",
+          "./img/4/file corel phòng HCM 026.webp",
+          "./img/4/file corel phòng HCM 027.webp",
+          "./img/4/file corel phòng HCM 028.webp",
+          "./img/4/file corel phòng HCM 029.webp",
+          "./img/4/file corel phòng HCM 030.webp",
+          "./img/4/file corel phòng HCM 031.webp",
+          "./img/4/file corel phòng HCM 032.webp"
         ]
       },
       5: {
         title: "TUỔI TRẺ QUÂN ĐỘI “PHÁT HUY TRUYỀN THỐNG, CỐNG HIẾN TÀI NĂNG, XỨNG DANH BỘ ĐỘI CỤ HỒ”",
         intro: "",
-        heroImage: "./img/5/file corel phòng HCM 01.png",
-        pdfUrl: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
+        heroImage: "./img/5/file corel phòng HCM 01.webp",
+        pdfUrl: "./pdf/MẢNG ẢNH 5.pdf",
+        audio:"./mp3/mang5.mp3",
         note:[
           "Tuổi trẻ Quân đội Phấn đấu xứng danh Bộ đội Cụ Hồ Thời kỳ mới",
           "“Đoàn viên và thanh niên ta nói chung là tốt mọi việc đều hăng hái xung phong, không ngại khó khăn, có chí tiến thủ. Đảng cần phải chăm lo giáo dục đạo đức cách mạng cho họ. Đào tạo họ thành những người thừa kế xây đựng xã hội thế hệ cách mạng cho đời sau là một việc rất quan trọng và rất cần thiết”",
@@ -1490,35 +1496,35 @@
           "Chương trình nghệ thuật “Cùng nhau giữ nước” Chào mừng kỷ niệm 80 năm Ngày thành lập QĐND Việt Nam tại Hoàng Thăng Long, tháng 12/2024"
         ],
         images: [
-          "./img/5/file corel phòng HCM 01.png",
-          "./img/5/file corel phòng HCM 02.png",
-          "./img/5/file corel phòng HCM 03.png",
-          "./img/5/file corel phòng HCM 04.png",
-          "./img/5/file corel phòng HCM 05.png",
-          "./img/5/file corel phòng HCM 06.png",
-          "./img/5/file corel phòng HCM 07.png",
-          "./img/5/file corel phòng HCM 08.png",
-          "./img/5/file corel phòng HCM 09.png",
-          "./img/5/file corel phòng HCM 010.png",
-          "./img/5/file corel phòng HCM 011.png",
-          "./img/5/file corel phòng HCM 012.png",
-          "./img/5/file corel phòng HCM 013.png",
-          "./img/5/file corel phòng HCM 014.png",
-          "./img/5/file corel phòng HCM 015.png",
-          "./img/5/file corel phòng HCM 016.png",
-          "./img/5/file corel phòng HCM 017.png",
-          "./img/5/file corel phòng HCM 018.png",
-          "./img/5/file corel phòng HCM 019.png",
-          "./img/5/file corel phòng HCM 020.png",
-          "./img/5/file corel phòng HCM 021.png",
-          "./img/5/file corel phòng HCM 022.png",
-          "./img/5/file corel phòng HCM 023.png",
-          "./img/5/file corel phòng HCM 024.png",
-          "./img/5/file corel phòng HCM 025.png",
-          "./img/5/file corel phòng HCM 026.png",
-          "./img/5/file corel phòng HCM 027.png",
-          "./img/5/file corel phòng HCM 028.png",
-          "./img/5/file corel phòng HCM 029.png"
+          "./img/5/file corel phòng HCM 01.webp",
+          "./img/5/file corel phòng HCM 02.webp",
+          "./img/5/file corel phòng HCM 03.webp",
+          "./img/5/file corel phòng HCM 04.webp",
+          "./img/5/file corel phòng HCM 05.webp",
+          "./img/5/file corel phòng HCM 06.webp",
+          "./img/5/file corel phòng HCM 07.webp",
+          "./img/5/file corel phòng HCM 08.webp",
+          "./img/5/file corel phòng HCM 09.webp",
+          "./img/5/file corel phòng HCM 010.webp",
+          "./img/5/file corel phòng HCM 011.webp",
+          "./img/5/file corel phòng HCM 012.webp",
+          "./img/5/file corel phòng HCM 013.webp",
+          "./img/5/file corel phòng HCM 014.webp",
+          "./img/5/file corel phòng HCM 015.webp",
+          "./img/5/file corel phòng HCM 016.webp",
+          "./img/5/file corel phòng HCM 017.webp",
+          "./img/5/file corel phòng HCM 018.webp",
+          "./img/5/file corel phòng HCM 019.webp",
+          "./img/5/file corel phòng HCM 020.webp",
+          "./img/5/file corel phòng HCM 021.webp",
+          "./img/5/file corel phòng HCM 022.webp",
+          "./img/5/file corel phòng HCM 023.webp",
+          "./img/5/file corel phòng HCM 024.webp",
+          "./img/5/file corel phòng HCM 025.webp",
+          "./img/5/file corel phòng HCM 026.webp",
+          "./img/5/file corel phòng HCM 027.webp",
+          "./img/5/file corel phòng HCM 028.webp",
+          "./img/5/file corel phòng HCM 029.webp"
         ]
       }
     };
@@ -1768,15 +1774,47 @@
       renderSlider(page);
     }
 
-    function openItem(id){
-      renderDetail(id);
-      document.getElementById("homeView").classList.remove("active");
-      document.getElementById("detailView").classList.add("active");
-      history.pushState({view:"detail", id}, "", "#item-" + id);
-      window.scrollTo({top:0, behavior:"smooth"});
-    }
+   function openItem(id){
+
+    const item = data[id];
+
+    if(!item) return;
+
+
+    renderDetail(id);
+
+
+    document.getElementById("homeView")
+    .classList.remove("active");
+
+
+    document.getElementById("detailView")
+    .classList.add("active");
+
+
+    history.pushState(
+        {
+            view:"detail",
+            id:id
+        },
+        "",
+        "#item-" + id
+    );
+
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+
+    // phát audio
+    playDetailAudio(item.audio);
+
+}
 
     function goHome(){
+        stopDetailAudio();
       document.getElementById("detailView").classList.remove("active");
       document.getElementById("homeView").classList.add("active");
       document.title = "Phòng Hồ Chí Minh Tiểu đoàn 6";
@@ -1787,6 +1825,7 @@
     }
 
     window.addEventListener("popstate", (e) => {
+      stopDetailAudio();
       const state = e.state || {};
       if (state.view === "detail") {
         document.getElementById("homeView").classList.remove("active");
@@ -1828,18 +1867,45 @@
     });
 
     (function init(){
-      const hash = location.hash;
-      if (hash.startsWith("#item-")) {
-        const id = hash.replace("#item-", "");
-        renderDetail(id);
-        document.getElementById("homeView").classList.remove("active");
-        document.getElementById("detailView").classList.add("active");
-        history.replaceState({view:"detail", id}, "", hash);
-      } else {
-        history.replaceState({view:"home"}, "", "#home");
-      }
-    })();
 
+    const hash = location.hash;
+
+    if(hash.startsWith("#item-")){
+
+        const id = hash.replace("#item-","");
+
+        const item = data[id];
+
+        if(item){
+
+            renderDetail(id);
+
+            document
+            .getElementById("homeView")
+            .classList.remove("active");
+
+            document
+            .getElementById("detailView")
+            .classList.add("active");
+
+
+            history.replaceState(
+                {
+                    view:"detail",
+                    id:id
+                },
+                "",
+                hash
+            );
+
+            // KHÔNG tự phát khi load link trực tiếp
+            stopDetailAudio();
+
+        }
+
+    }
+
+})();
     // 
     // Hiệu ứng mưa/tuyết + logo giữa màn hình 2 giây/lần
 (function initEffects(){
@@ -1878,7 +1944,7 @@
  function spawnLogoBurst(){
   const el = document.createElement("div");
   el.className = "fx-logo-burst";
-  el.innerHTML = `<img src="./img/logo.png" alt="logo">`;
+  el.innerHTML = `<img src="./img/logo.webp" alt="logo">`;
 
   const positions = ["20vw", "50vw", "80vw"];
   const x = positions[Math.floor(Math.random() * positions.length)];
@@ -1901,6 +1967,136 @@
   spawnLogoBurst();
   setInterval(spawnLogoBurst, 4000);
 })();
+    // audio play
+    const detailAudio = document.getElementById("detailAudio");
+
+let currentAudioSrc = "";
+function stopDetailAudio(){
+
+    if(detailAudio){
+
+        detailAudio.pause();
+
+        detailAudio.currentTime = 0;
+
+        detailAudio.removeAttribute("src");
+
+        detailAudio.load();
+
+    }
+
+    currentAudioSrc = "";
+
+}
+function playDetailAudio(src){
+
+    if(!src) return;
+
+
+    currentAudioSrc = src;
+
+
+    detailAudio.pause();
+    detailAudio.currentTime = 0;
+
+    detailAudio.src = src;
+    detailAudio.load();
+
+
+    detailAudio.play()
+    .then(()=>{
+
+        console.log("Audio tự chạy");
+
+    })
+    .catch(()=>{
+
+
+        // nếu chưa được cấp quyền
+        const allowed =
+        localStorage.getItem("audioAllowed");
+
+
+        if(allowed !== "yes"){
+
+            showAudioStart();
+
+        }
+
+    });
+
+}
+
+
+
+function showAudioStart(){
+
+    const box =
+    document.getElementById(
+        "audioStartScreen"
+    );
+
+
+    if(box){
+
+        box.style.display="flex";
+
+    }
+
+}
+
+
+
+function startAudioExperience(){
+
+
+    const box =
+    document.getElementById(
+        "audioStartScreen"
+    );
+
+
+    if(box){
+
+        box.style.display="none";
+
+    }
+
+
+    localStorage.setItem(
+        "audioAllowed",
+        "yes"
+    );
+
+
+    if(currentAudioSrc){
+
+
+        detailAudio.play()
+        .then(()=>{
+
+            console.log(
+              "Đã mở quyền audio"
+            );
+
+        });
+
+
+    }
+
+}
+    window.addEventListener("pagehide", () => {
+
+    stopDetailAudio();
+
+});
+
+
+window.addEventListener("beforeunload", () => {
+
+    stopDetailAudio();
+
+});
   </script>
 </body>
 </html>

@@ -721,39 +721,42 @@
     .single-lightbox.open{display:flex}
 
     .single-lightbox-panel{
-      position:relative;
-      width:min(1100px, 100%);
-      max-height:calc(100vh - 36px);
-      border-radius:28px;
-      overflow:hidden;
-      box-shadow:0 30px 90px rgba(0,0,0,.42);
-      background:#0b1220;
-      border:1px solid rgba(255,255,255,.14);
-    }
+  position:relative;
+  width:min(1100px,100%);
+  max-height:calc(100vh - 60px);
+  border-radius:28px;
+  overflow:auto;
+  background:#0b1220;
+  box-shadow:0 30px 90px rgba(0,0,0,.42);
+  display:flex;
+  flex-direction:column;
+}
 
-    .single-lightbox-panel img{
-      display:block;
-      width:100%;
-      max-height:calc(100vh - 36px);
-      object-fit:contain;
-      background:#0b1220;
-    }
 
-    .single-lightbox-caption{
-      position:absolute;
-      left:18px;
-      right:18px;
-      bottom:18px;
-      padding:14px 16px;
-      border-radius:18px;
-      background:rgba(15,23,42,.72);
-      color:#fff;
-      font-weight:700;
-      line-height:1.6;
-      border:1px solid rgba(255,255,255,.12);
-      backdrop-filter:blur(12px);
-      z-index:3;
-    }
+.single-lightbox-panel img{
+  width:100%;
+  height:auto;
+  max-height:calc(100vh - 220px);
+  object-fit:contain;
+  background:#0b1220;
+  flex-shrink:0;
+}
+
+
+.single-lightbox-caption{
+  position:relative;
+  margin-top:14px;
+  width:100%;
+  padding:18px 20px;
+  background:#111827;
+  color:#fff;
+  font-weight:700;
+  line-height:1.7;
+  text-align:center;
+  font-size:15px;
+  border-radius:18px;
+  flex-shrink:0;
+}
 
     .single-lightbox-close{
       position:absolute;
@@ -911,15 +914,14 @@
         max-height:calc(100vh - 20px);
         border-radius:22px;
       }
-      .single-lightbox-panel img{
-        max-height:calc(100vh - 20px);
-      }
-      .single-lightbox-caption{
-        left:12px;
-        right:12px;
-        bottom:12px;
-        font-size:13px;
-      }
+     .single-lightbox-panel img{
+  max-height:calc(100vh - 220px);
+}
+    .single-lightbox-caption{
+    margin-top:12px;
+    font-size:13px;
+    padding:14px;
+}
       .single-lightbox-close{
         top:12px;
         right:12px;
@@ -1038,9 +1040,117 @@
     height:34px;
   }
 }
+.lightbox-btn{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  border:none;
+  background:rgba(255,255,255,.85);
+  color:#111;
+  font-size:30px;
+  font-weight:900;
+  cursor:pointer;
+  z-index:5;
+}
+
+
+.lightbox-btn.prev{
+  left:15px;
+}
+
+
+.lightbox-btn.next{
+  right:15px;
+}
+
+
+.single-lightbox-count{
+  position:absolute;
+  top:15px;
+  left:50%;
+  transform:translateX(-50%);
+  background:rgba(0,0,0,.55);
+  color:white;
+  padding:8px 14px;
+  border-radius:20px;
+  font-weight:700;
+  z-index:5;
+}
+
+
+@media(max-width:720px){
+
+.lightbox-btn{
+ width:42px;
+ height:42px;
+ font-size:25px;
+}
+
+}
+#audioStartScreen{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.75);
+  backdrop-filter:blur(10px);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:20000;
+}
+
+
+.audio-start-box{
+  width:min(420px,90%);
+  background:white;
+  border-radius:28px;
+  padding:30px;
+  text-align:center;
+  box-shadow:0 30px 80px rgba(0,0,0,.35);
+}
+
+
+.audio-start-box h2{
+  margin:0 0 15px;
+  color:#7c4a00;
+}
+
+
+.audio-start-box p{
+  line-height:1.7;
+  color:#555;
+}
+
+
+.audio-start-box button{
+  margin-top:20px;
+  padding:15px 25px;
+  border:none;
+  border-radius:18px;
+  background:linear-gradient(135deg,#f59e0b,#f97316);
+  color:white;
+  font-size:17px;
+  font-weight:800;
+  cursor:pointer;
+}
   </style>
 </head>
 <body>
+  <!-- Màn hình bắt buộc click để cấp quyền audio -->
+<div id="audioStartScreen">
+  <div class="audio-start-box">
+    <h2>Phòng Hồ Chí Minh Tiểu đoàn 6</h2>
+    <p>
+      Bấm nút bên dưới để bắt đầu xem nội dung và nghe thuyết minh.
+    </p>
+
+    <button onclick="startAudioExperience()">
+      ▶ Bắt đầu trải nghiệm
+    </button>
+  </div>
+</div>
     <audio id="detailAudio" preload="auto"></audio>
   <div class="fx-layer" id="fxLayer"></div>
   <div class="wrap">
@@ -1202,12 +1312,41 @@
   </div>
 
   <div id="singleLightbox" class="single-lightbox" aria-hidden="true">
-    <div class="single-lightbox-panel" role="dialog" aria-modal="true" aria-label="Xem ảnh">
-      <button class="single-lightbox-close" type="button" aria-label="Đóng" onclick="closeSingleLightbox()">&times;</button>
-      <img id="singleLightboxImg" src="" alt="Xem ảnh">
-      <div class="single-lightbox-caption" id="singleLightboxCaption"></div>
+
+  <div class="single-lightbox-panel">
+
+    <button class="single-lightbox-close"
+      onclick="closeSingleLightbox()">
+      &times;
+    </button>
+
+
+    <button class="lightbox-btn prev"
+      onclick="changeLightboxSlide(-1)">
+      ‹
+    </button>
+
+
+    <img id="singleLightboxImg" src="" alt="">
+
+
+    <button class="lightbox-btn next"
+      onclick="changeLightboxSlide(1)">
+      ›
+    </button>
+
+
+    <div class="single-lightbox-count" id="singleLightboxCount">
     </div>
+
+
+    <div class="single-lightbox-caption"
+      id="singleLightboxCaption">
+    </div>
+
   </div>
+
+</div>
 
   <div id="notesModal" class="modal" aria-hidden="true">
     <div class="modal-panel" role="dialog" aria-modal="true" aria-label="Toàn bộ ghi chú">
@@ -1669,8 +1808,7 @@
       const img = document.getElementById("singleLightboxImg");
       const caption = document.getElementById("singleLightboxCaption");
       if (document.getElementById("singleLightbox")?.classList.contains("open")) {
-        if (img) img.src = currentSlides[currentSlideIndex] || "";
-        if (caption) caption.textContent = currentCaptions[currentSlideIndex] || "";
+       syncLightbox();
       }
     }
 
@@ -1684,20 +1822,77 @@
       setSlide(currentSlideIndex + step);
     }
 
-    function openSingleLightbox(src, caption){
-      const box = document.getElementById("singleLightbox");
-      const img = document.getElementById("singleLightboxImg");
-      const cap = document.getElementById("singleLightboxCaption");
+   function openSingleLightbox(src, caption){
 
-      if (img) img.src = src || "";
-      if (cap) cap.textContent = caption || "";
+  const index = currentSlides.indexOf(src);
 
-      if (box) {
-        box.classList.add("open");
-        box.setAttribute("aria-hidden", "false");
-      }
-      document.body.style.overflow = "hidden";
-    }
+  if(index >= 0){
+      currentSlideIndex = index;
+  }
+
+
+  syncLightbox();
+
+
+  const box=document.getElementById("singleLightbox");
+
+  if(box){
+      box.classList.add("open");
+      box.setAttribute("aria-hidden","false");
+  }
+
+  document.body.style.overflow="hidden";
+}
+
+
+
+function syncLightbox(){
+
+ const img=document.getElementById("singleLightboxImg");
+ const cap=document.getElementById("singleLightboxCaption");
+ const count=document.getElementById("singleLightboxCount");
+
+
+ if(img){
+   img.src=currentSlides[currentSlideIndex] || "";
+ }
+
+
+ if(cap){
+   cap.textContent=currentCaptions[currentSlideIndex] || "";
+ }
+
+
+ if(count){
+   count.textContent=
+   `${currentSlideIndex+1} / ${currentSlides.length}`;
+ }
+
+}
+
+
+
+function changeLightboxSlide(step){
+
+ if(!currentSlides.length) return;
+
+
+ currentSlideIndex += step;
+
+
+ if(currentSlideIndex < 0){
+   currentSlideIndex=currentSlides.length-1;
+ }
+
+
+ if(currentSlideIndex >= currentSlides.length){
+   currentSlideIndex=0;
+ }
+
+
+ syncLightbox();
+
+}
 
     function closeSingleLightbox(){
       const box = document.getElementById("singleLightbox");
@@ -1809,7 +2004,10 @@
 
 
     // phát audio
-    playDetailAudio(item.audio);
+currentAudioSrc = item.audio;
+
+// hiện yêu cầu click
+showAudioStart();
 
 }
 
@@ -1866,6 +2064,27 @@
       if (modal && e.target === modal) closeNotesModal();
     });
 
+
+     const detailAudio = document.getElementById("detailAudio");
+
+let currentAudioSrc = "";
+function stopDetailAudio(){
+
+    if(detailAudio){
+
+        detailAudio.pause();
+
+        detailAudio.currentTime = 0;
+
+        detailAudio.removeAttribute("src");
+
+        detailAudio.load();
+
+    }
+
+    currentAudioSrc = "";
+
+}
     (function init(){
 
     const hash = location.hash;
@@ -1899,7 +2118,14 @@
             );
 
             // KHÔNG tự phát khi load link trực tiếp
-            stopDetailAudio();
+            // Không tự phát audio khi load trực tiếp
+stopDetailAudio();
+
+// Lưu audio chờ người dùng click
+currentAudioSrc = item.audio;
+
+// Hiện nút bắt đầu
+showAudioStart();
 
         }
 
@@ -1968,26 +2194,7 @@
   setInterval(spawnLogoBurst, 4000);
 })();
     // audio play
-    const detailAudio = document.getElementById("detailAudio");
-
-let currentAudioSrc = "";
-function stopDetailAudio(){
-
-    if(detailAudio){
-
-        detailAudio.pause();
-
-        detailAudio.currentTime = 0;
-
-        detailAudio.removeAttribute("src");
-
-        detailAudio.load();
-
-    }
-
-    currentAudioSrc = "";
-
-}
+   
 function playDetailAudio(src){
 
     if(!src) return;
@@ -2028,20 +2235,16 @@ function playDetailAudio(src){
 }
 
 
-
+console.log("Gọi hiện nút");
 function showAudioStart(){
 
-    const box =
-    document.getElementById(
-        "audioStartScreen"
-    );
+console.log("showAudioStart chạy");
 
+let box=document.getElementById("audioStartScreen");
 
-    if(box){
+console.log(box);
 
-        box.style.display="flex";
-
-    }
+box.style.display="flex";
 
 }
 
@@ -2049,17 +2252,12 @@ function showAudioStart(){
 
 function startAudioExperience(){
 
-
-    const box =
-    document.getElementById(
+    const box = document.getElementById(
         "audioStartScreen"
     );
 
-
     if(box){
-
         box.style.display="none";
-
     }
 
 
@@ -2069,19 +2267,31 @@ function startAudioExperience(){
     );
 
 
+    // phát audio sau khi có click thật
     if(currentAudioSrc){
 
+        detailAudio.src = currentAudioSrc;
+        detailAudio.load();
 
         detailAudio.play()
         .then(()=>{
-
-            console.log(
-              "Đã mở quyền audio"
-            );
-
+            console.log("Audio đã được mở");
+        })
+        .catch(err=>{
+            console.log(err);
         });
 
+    }
 
+
+    // mở trải nghiệm ảnh
+    const gallery =
+    document.querySelector(".gallery-shell");
+
+    if(gallery){
+        gallery.scrollIntoView({
+            behavior:"smooth"
+        });
     }
 
 }
